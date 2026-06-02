@@ -3,12 +3,18 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://oneokrockmasato1020-bit.github.io/yanagawa-banksy/</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://oneokrockmasato1020-bit.github.io/yanagawa-banksy/og-image.jpg</image:loc>
       <image:title>YANAGAWA BANKSY - 柳川 最新 MIX BAR</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://oneokrockmasato1020-bit.github.io/yanagawa-banksy/guide.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

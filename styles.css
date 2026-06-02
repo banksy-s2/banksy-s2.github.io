@@ -2503,6 +2503,203 @@ body {
 }
 
 /* =========================================================
+   GUIDE PAGE — 柳川の夜遊びガイド記事
+   ========================================================= */
+.guide-article {
+  padding: 60px 0 100px;
+  background:
+    radial-gradient(ellipse at top, #0a0507 0%, #050505 50%),
+    var(--bg);
+  position: relative;
+  z-index: 2;
+}
+.breadcrumb {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 40px;
+}
+.breadcrumb a {
+  color: var(--gold);
+  transition: color .3s;
+}
+.breadcrumb a:hover { color: var(--pink); }
+.breadcrumb span {
+  color: rgba(255,255,255,0.8);
+}
+
+.guide-head {
+  text-align: center;
+  margin-bottom: 70px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(201,169,106,0.2);
+}
+.guide-head .kicker {
+  color: var(--gold);
+}
+.guide-title {
+  font-family: var(--font-mincho);
+  font-size: clamp(28px, 4.5vw, 44px);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  margin: 16px 0;
+  background: linear-gradient(180deg, #fff 0%, #f0e6d4 65%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.guide-title small {
+  display: block;
+  font-size: 0.55em;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--ink-mute);
+  -webkit-text-fill-color: var(--ink-mute);
+  background: none;
+  margin-top: 12px;
+}
+.guide-meta {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  opacity: 0.85;
+  margin-top: 18px;
+}
+
+.guide-section {
+  margin-bottom: 56px;
+}
+.guide-section h2 {
+  font-family: var(--font-mincho);
+  font-size: clamp(20px, 2.6vw, 26px);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(201,169,106,0.25);
+  position: relative;
+  color: #fff;
+}
+.guide-section h2::before {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -1px;
+  width: 60px; height: 2px;
+  background: linear-gradient(90deg, var(--pink), var(--gold));
+}
+.guide-section h3 {
+  font-family: var(--font-mincho);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--gold-2);
+  margin: 28px 0 14px;
+}
+.guide-section p {
+  font-family: var(--font-jp);
+  font-size: 14.5px;
+  line-height: 2.05;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.88);
+  margin-bottom: 18px;
+}
+.guide-section p strong {
+  color: #fff;
+  font-weight: 600;
+  background: linear-gradient(180deg, transparent 65%, rgba(255,31,122,0.25) 65%);
+  padding: 0 2px;
+}
+.guide-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 24px;
+}
+.guide-section ul li {
+  padding: 10px 14px 10px 22px;
+  margin-bottom: 6px;
+  position: relative;
+  font-family: var(--font-jp);
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.03);
+  border-left: 2px solid var(--gold);
+  letter-spacing: 0.04em;
+}
+.guide-section ul li strong {
+  color: #fff;
+  font-weight: 600;
+}
+.guide-section a {
+  color: var(--gold-2);
+  border-bottom: 1px solid rgba(201,169,106,0.4);
+  transition: color .3s, border-color .3s;
+}
+.guide-section a:hover {
+  color: var(--pink);
+  border-color: var(--pink);
+}
+.guide-cta {
+  text-align: center;
+  margin: 36px 0 12px !important;
+}
+
+.guide-related {
+  margin-top: 80px;
+  padding: 32px 28px;
+  background: linear-gradient(155deg, rgba(20,10,15,0.5), rgba(10,7,7,0.7));
+  border: 1px solid rgba(201,169,106,0.3);
+}
+.guide-related h3 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(201,169,106,0.2);
+}
+.guide-related ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+@media (max-width: 600px) {
+  .guide-related ul { grid-template-columns: 1fr; }
+}
+.guide-related ul li {
+  padding: 0;
+  background: none;
+  border: none;
+}
+.guide-related ul li a {
+  display: block;
+  padding: 8px 0;
+  font-family: var(--font-mincho);
+  font-size: 13.5px;
+  color: var(--ink);
+  border-bottom: none;
+  letter-spacing: 0.06em;
+  transition: padding-left .3s, color .3s;
+}
+.guide-related ul li a::before {
+  content: "→ ";
+  color: var(--gold);
+}
+.guide-related ul li a:hover {
+  color: var(--pink);
+  padding-left: 6px;
+}
+
+/* =========================================================
    CAST CARDS — 個別プロフィール強化
    ========================================================= */
 .cast-photo {
