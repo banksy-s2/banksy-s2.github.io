@@ -310,6 +310,8 @@
       );
     }
 
+    let lastFocusedEl = null;
+
     function openModal(card) {
       const imgs = (card.dataset.images || "").split(",").map(s => s.trim()).filter(Boolean);
       if (!imgs.length) return;
@@ -324,23 +326,49 @@
       // thumbs
       thumbsEl.innerHTML = "";
       imgs.forEach((src, k) => {
-        const t = document.createElement("div");
+        const t = document.createElement("button");
+        t.type = "button";
         t.className = "cast-modal-thumb";
+        t.setAttribute("aria-label", "写真 " + (k+1) + " を表示");
         t.style.backgroundImage = `url("${src}")`;
         t.addEventListener("click", () => setImage(k));
         thumbsEl.appendChild(t);
       });
       setImage(0);
+      // フォーカス管理：元の要素を記憶
+      lastFocusedEl = document.activeElement;
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+      // モーダル内に初期フォーカス
+      setTimeout(() => closeBtn && closeBtn.focus(), 60);
     }
 
     function closeModal() {
       modal.classList.remove("is-open");
       modal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
+      // 元の場所にフォーカスを戻す（アクセシビリティ）
+      if (lastFocusedEl && typeof lastFocusedEl.focus === "function") {
+        lastFocusedEl.focus();
+      }
     }
+
+    // フォーカストラップ（モーダル内で Tab がループ）
+    modal.addEventListener("keydown", (e) => {
+      if (e.key !== "Tab" || !modal.classList.contains("is-open")) return;
+      const focusables = modal.querySelectorAll(
+        'button, a[href], [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last  = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    });
 
     // ギャラリー付きカードにクリック＋キーボード対応
     document.querySelectorAll(".cast-card.has-gallery").forEach((card) => {
@@ -386,17 +414,5 @@
     }, { passive: true });
   })();
 
-  // ===== 滑らかなスクロール（アンカー） =====
-  document.querySelectorAll('a[href^="#"]').forEach((a) => {
-    a.addEventListener("click", (e) => {
-      const id = a.getAttribute("href");
-      if (id.length > 1) {
-        const t = document.querySelector(id);
-        if (t) {
-          e.preventDefault();
-          t.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
-    });
-  });
+  // ===== 滑らかなスクロールはCSS scroll-behavior に統一（JS削除） =====
 })();
