@@ -2503,6 +2503,27 @@ body {
 }
 
 /* =========================================================
+   スキップリンク（アクセシビリティ）
+   ========================================================= */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  z-index: 9999;
+  background: var(--pink);
+  color: #fff;
+  padding: 12px 24px;
+  font-family: var(--font-mincho);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: top .3s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* =========================================================
    sr-extra: h2 内の SEOキーワードサブタイトル
    ========================================================= */
 .sr-extra {
@@ -2550,6 +2571,85 @@ textarea:focus-visible,
 select:focus-visible {
   outline: 2px solid var(--pink);
   outline-offset: 2px;
+}
+
+/* =========================================================
+   ガイド記事への内部リンクカード（SYSTEMセクション下）
+   ========================================================= */
+.system-guide-links {
+  max-width: 920px;
+  margin: 56px auto 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 720px) {
+  .system-guide-links { grid-template-columns: 1fr; }
+}
+.guide-link-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto auto;
+  gap: 4px 16px;
+  padding: 24px 28px;
+  background: linear-gradient(155deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%);
+  border: 1px solid rgba(201,169,106,0.25);
+  text-decoration: none;
+  color: var(--ink-dark);
+  transition: transform .4s cubic-bezier(.16,1,.3,1), border-color .4s, box-shadow .4s;
+  position: relative;
+  overflow: hidden;
+}
+.guide-link-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow:
+    0 12px 32px rgba(0,0,0,0.08),
+    0 0 0 1px rgba(255,255,255,0.6) inset;
+}
+.guide-link-kicker {
+  grid-column: 1;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.guide-link-title {
+  grid-column: 1;
+  font-family: var(--font-mincho);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink-dark);
+}
+.guide-link-desc {
+  grid-column: 1;
+  font-size: 12.5px;
+  color: rgba(0,0,0,0.65);
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+.guide-link-arrow {
+  grid-row: 1 / span 3;
+  grid-column: 2;
+  align-self: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 32px;
+  background: linear-gradient(135deg, var(--pink) 0%, var(--pink-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  transition: transform .3s;
+}
+.guide-link-card:hover .guide-link-arrow {
+  transform: translateX(6px);
 }
 
 /* ABOUT 観光客向け一文 */

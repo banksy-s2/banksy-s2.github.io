@@ -561,7 +561,7 @@
         <span class="brand-banksy">BANKSY</span>
       </div>
     </a>
-    <nav class="nav">
+    <nav class="nav" id="primary-nav">
       <a href="#about">ABOUT</a>
       <a href="#cast">CAST</a>
       <a href="#interior">INTERIOR</a>
@@ -570,10 +570,15 @@
       <a href="#info">INFO</a>
       <a href="#access">ACCESS</a>
     </nav>
-    <button class="menu-toggle" aria-label="menu" id="menuToggle">
+    <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="primary-nav" id="menuToggle">
       <span></span><span></span><span></span>
     </button>
   </header>
+
+  <!-- スキップリンク（アクセシビリティ） -->
+  <a href="#main-content" class="skip-link">本文へスキップ</a>
+
+  <main id="main-content">
 
   <!-- HERO -->
   <section class="hero" id="top">
@@ -1015,6 +1020,22 @@
         </div>
       </div>
 
+      <!-- ガイド記事への内部リンク -->
+      <div class="system-guide-links">
+        <a href="guide.html" class="guide-link-card">
+          <span class="guide-link-kicker">— GUIDE —</span>
+          <span class="guide-link-title">柳川の夜遊びガイド</span>
+          <span class="guide-link-desc">バー・MIX BAR・観光×夜遊び完全案内</span>
+          <span class="guide-link-arrow">→</span>
+        </a>
+        <a href="champagne.html" class="guide-link-card">
+          <span class="guide-link-kicker">— CHAMPAGNE —</span>
+          <span class="guide-link-title">シャンパン・シャンパンタワー</span>
+          <span class="guide-link-desc">お祝い・誕生日・推し祝いに</span>
+          <span class="guide-link-arrow">→</span>
+        </a>
+      </div>
+
       <!-- 注意事項 -->
       <div class="price-notes">
         <div class="note-item">
@@ -1447,6 +1468,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
@@ -1473,7 +1496,15 @@
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#cast">CAST</a></li>
             <li><a href="#system">SYSTEM</a></li>
+            <li><a href="#gift">GIFT</a></li>
             <li><a href="#access">ACCESS</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>GUIDE</h4>
+          <ul>
+            <li><a href="guide.html">柳川の夜遊びガイド</a></li>
+            <li><a href="champagne.html">シャンパン・シャンパンタワー</a></li>
           </ul>
         </div>
         <div>

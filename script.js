@@ -66,9 +66,17 @@
   const menuToggle = document.getElementById("menuToggle");
   const nav = document.querySelector(".nav");
   if (menuToggle && nav) {
-    menuToggle.addEventListener("click", () => nav.classList.toggle("open"));
+    menuToggle.addEventListener("click", () => {
+      const opened = nav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(opened));
+      menuToggle.setAttribute("aria-label", opened ? "メニューを閉じる" : "メニューを開く");
+    });
     nav.querySelectorAll("a").forEach((a) =>
-      a.addEventListener("click", () => nav.classList.remove("open"))
+      a.addEventListener("click", () => {
+        nav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "メニューを開く");
+      })
     );
   }
 
