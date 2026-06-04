@@ -2502,6 +2502,21 @@ body {
   color: #fff;
 }
 
+/* ABOUT 観光客向け一文 */
+.about-tourist {
+  margin-top: 18px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(255,31,122,0.10), rgba(201,169,106,0.08));
+  border-left: 3px solid var(--gold);
+  font-size: 14px;
+  line-height: 1.95;
+  color: rgba(255,255,255,0.92);
+}
+.about-tourist strong {
+  color: var(--gold-2);
+  font-weight: 600;
+}
+
 /* =========================================================
    GUIDE PAGE — 柳川の夜遊びガイド記事
    ========================================================= */
