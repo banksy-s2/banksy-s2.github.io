@@ -415,4 +415,57 @@
   })();
 
   // ===== 滑らかなスクロールはCSS scroll-behavior に統一（JS削除） =====
+
+  // ===== VISITOR COUNTER（訪問者カウンター） =====
+  (function initVisitorCounter() {
+    const el = document.getElementById("visitorCount");
+    if (!el) return;
+
+    // 過去のGA4アクセス分を底上げしたい場合はここの数字を変更
+    // 例: GA4 累計が 3000 なら BASELINE = 3000
+    const BASELINE = 0;
+
+    // セッション単位で重複カウント防止
+    const SESSION_KEY = "banksy_visited_session";
+    const alreadyCounted = sessionStorage.getItem(SESSION_KEY) === "1";
+
+    // 数字をカウントアップ表示
+    function animateCount(target) {
+      const duration = 1400;
+      const startTime = performance.now();
+      const formatter = new Intl.NumberFormat("ja-JP");
+      function frame(now) {
+        const t = Math.min(1, (now - startTime) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const value = Math.floor(eased * target);
+        el.textContent = formatter.format(value);
+        if (t < 1) requestAnimationFrame(frame);
+        else el.textContent = formatter.format(target);
+      }
+      requestAnimationFrame(frame);
+    }
+
+    // フォールバック：取得失敗時は localStorage の最終値を出す
+    function showFallback() {
+      const last = parseInt(localStorage.getItem("banksy_last_count") || "0", 10);
+      if (last > 0) animateCount(last + BASELINE);
+      else el.textContent = "—";
+    }
+
+    // counterapi.dev — 増分カウンター（無料・サインアップ不要）
+    const endpoint = alreadyCounted
+      ? "https://api.counterapi.dev/v1/banksy-s2/site-visits"
+      : "https://api.counterapi.dev/v1/banksy-s2/site-visits/up";
+
+    fetch(endpoint, { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((data) => {
+        const count = parseInt(data.count, 10);
+        if (!Number.isFinite(count)) return showFallback();
+        sessionStorage.setItem(SESSION_KEY, "1");
+        localStorage.setItem("banksy_last_count", String(count));
+        animateCount(count + BASELINE);
+      })
+      .catch(showFallback);
+  })();
 })();
