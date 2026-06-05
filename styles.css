@@ -4873,7 +4873,204 @@ html.is-live .site-header { top: 48px !important; }
 
 .instagram-cta {
   text-align: center;
-  margin-top: 16px;
+  margin-top: 28px;
+}
+.ig-cta-text {
+  font-family: var(--font-mincho);
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ink-dark);
+  letter-spacing: 0.06em;
+}
+.ig-cta-text strong {
+  background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #FCAF45 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* Instagram プロフィールカード */
+.ig-card {
+  display: block;
+  max-width: 760px;
+  margin: 0 auto;
+  background: linear-gradient(155deg, #fff 0%, var(--paper) 100%);
+  border-radius: 18px;
+  padding: 32px;
+  text-decoration: none;
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.06),
+    0 24px 60px rgba(0,0,0,0.08),
+    0 0 0 1px rgba(255,255,255,0.8) inset;
+  transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s;
+  position: relative;
+  overflow: hidden;
+}
+.ig-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #FCAF45, #E1306C, #833AB4, #5B51D8, #515BD4);
+}
+.ig-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 8px 24px rgba(225,48,108,0.15),
+    0 32px 80px rgba(0,0,0,0.12),
+    0 0 0 1px rgba(255,255,255,0.9) inset;
+}
+@media (max-width: 720px) {
+  .ig-card { padding: 24px 20px; border-radius: 14px; }
+}
+
+/* カードヘッダー */
+.ig-card-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 22px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+@media (max-width: 560px) {
+  .ig-card-header { gap: 16px; }
+}
+.ig-card-avatar {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+}
+.ig-avatar-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 45deg, #FCAF45, #E1306C, #833AB4, #5B51D8, #515BD4, #FCAF45);
+  padding: 3px;
+  animation: igRingRotate 8s linear infinite;
+}
+@keyframes igRingRotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.ig-avatar-inner {
+  position: absolute;
+  inset: 3px;
+  background: linear-gradient(135deg, #ff5ba1 0%, #ff1f7a 50%, #c4135b 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #fff;
+}
+.ig-avatar-initial {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 48px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+@media (max-width: 560px) {
+  .ig-card-avatar { width: 72px; height: 72px; }
+  .ig-avatar-initial { font-size: 36px; }
+}
+
+.ig-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ig-card-username {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--ink-dark);
+  letter-spacing: 0.05em;
+}
+.ig-card-bio {
+  font-family: var(--font-mincho);
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--ink-dark);
+  opacity: 0.78;
+  letter-spacing: 0.04em;
+}
+.ig-card-follow-btn {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 8px 18px;
+  background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #FCAF45 100%);
+  color: #fff;
+  font-family: var(--font-mincho);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  border-radius: 100px;
+  box-shadow: 0 4px 12px rgba(225,48,108,0.3);
+}
+
+/* グリッド（投稿サムネ風） */
+.ig-card-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+  margin-bottom: 20px;
+}
+@media (max-width: 720px) {
+  .ig-card-grid { grid-template-columns: repeat(3, 1fr); gap: 3px; }
+}
+.ig-card-tile {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  border-radius: 4px;
+  transition: transform .4s;
+}
+.ig-card-tile:hover { transform: scale(1.05); }
+.ig-card-tile.t1 { background: linear-gradient(135deg, #ff5ba1 0%, #ff1f7a 100%); }
+.ig-card-tile.t2 { background: linear-gradient(135deg, #833AB4 0%, #5B51D8 100%); }
+.ig-card-tile.t3 { background: linear-gradient(135deg, #FCAF45 0%, #FCB045 100%); }
+.ig-card-tile.t4 { background: linear-gradient(135deg, #E1306C 0%, #FD1D1D 100%); }
+.ig-card-tile.t5 { background: linear-gradient(135deg, #FFD700 0%, #FCAF45 100%); }
+.ig-card-tile.t6 { background: linear-gradient(135deg, #c4135b 0%, #833AB4 100%); }
+.ig-tile-icon {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.ig-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.ig-card-cta-label {
+  font-family: var(--font-mincho);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-dark);
+  letter-spacing: 0.08em;
+}
+.ig-card-cta-arrow {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 24px;
+  background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #FCAF45 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  transition: transform .3s;
+}
+.ig-card:hover .ig-card-cta-arrow {
+  transform: translateX(6px);
 }
 
 /* =========================================================
