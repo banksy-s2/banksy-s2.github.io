@@ -26,4 +26,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://oneokrockmasato1020-bit.github.io/yanagawa-banksy/sitemap.xml
+Sitemap: https://banksy-s2.github.io/sitemap.xml
