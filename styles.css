@@ -2542,27 +2542,19 @@ body {
 }
 
 /* =========================================================
-   sr-extra: h2 内の SEOキーワードサブタイトル
+   sr-extra: SEOキーワード（視覚的に非表示・スクリーンリーダー/Bot用）
+   見た目はクリーンに、HTML上ではキーワード保持
    ========================================================= */
 .sr-extra {
-  display: block;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.3em;
-  margin-top: 14px;
-  opacity: 0.5;
-  background: var(--gold-grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-}
-.section.dark .sr-extra {
-  color: var(--gold);
-  -webkit-text-fill-color: var(--gold);
-  background: none;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 /* =========================================================
@@ -5944,4 +5936,63 @@ body {
     contrast(1.1)
     brightness(0.95);
   background-position: center 30%;
+}
+
+/* =========================================================
+   モバイル文字組み最適化（2026-06 追加）
+   日本語＋英語の混在時に letter-spacing が広すぎて改行・余白が
+   ガタガタになる問題を解消
+   ========================================================= */
+@media (max-width: 720px) {
+  /* セクションキッカー：装飾線を短くしてはみ出し防止 */
+  .kicker {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-indent: 0.32em;
+  }
+  .kicker::before,
+  .kicker::after {
+    display: none;
+  }
+
+  /* セクションタイトル：少し小さく、行間広く、読みやすく */
+  .section-title {
+    font-size: clamp(22px, 6.5vw, 30px);
+    line-height: 1.55;
+    letter-spacing: 0.06em;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+
+  /* セクションサブ：英文の letter-spacing を小さく、自然改行 */
+  .section-sub {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-indent: 0.15em;
+    line-height: 1.85;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    padding: 0 8px;
+  }
+
+  /* セクション head に上下マージン */
+  .section-head {
+    padding: 0 6px;
+  }
+}
+
+/* 超小型端末（iPhone SE 等） */
+@media (max-width: 380px) {
+  .section-title {
+    font-size: 21px;
+    letter-spacing: 0.04em;
+  }
+  .section-sub {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+  .kicker {
+    font-size: 9.5px;
+    letter-spacing: 0.28em;
+  }
 }
