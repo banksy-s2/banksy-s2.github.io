@@ -4768,6 +4768,115 @@ html.is-live .site-header { top: 48px !important; }
 }
 
 /* =========================================================
+   FROM INSTAGRAM SECTION
+   ========================================================= */
+.instagram-section {
+  background:
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+  position: relative;
+}
+.instagram-lead {
+  text-align: center;
+  margin: 0 auto 40px;
+  max-width: 640px;
+}
+.instagram-lead p {
+  font-family: var(--font-mincho);
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  color: var(--ink-dark);
+}
+.instagram-lead strong {
+  background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #FCAF45 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.instagram-feed-wrap {
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  position: relative;
+  min-height: 400px;
+}
+
+.lightwidget-widget {
+  border-radius: 2px;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.06),
+    0 24px 60px rgba(0,0,0,0.05);
+}
+
+/* プレースホルダー（LightWidget未設定時） */
+.instagram-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 30px;
+  background: linear-gradient(155deg, #fff 0%, var(--paper-2) 100%);
+  border: 1px dashed rgba(201,169,106,0.5);
+  border-radius: 4px;
+  text-align: center;
+  min-height: 320px;
+}
+.ig-placeholder-icon {
+  color: transparent;
+  background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #FCAF45 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+}
+.ig-placeholder-icon svg {
+  background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #FCAF45 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.ig-placeholder-text {
+  font-family: var(--font-mincho);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-dark);
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+.ig-placeholder-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #FCAF45 100%);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  border-radius: 100px;
+  box-shadow:
+    0 4px 12px rgba(225,48,108,0.3),
+    0 0 0 1px rgba(255,255,255,0.1) inset;
+  transition: transform .3s, box-shadow .3s;
+}
+.ig-placeholder-link:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(225,48,108,0.5),
+    0 0 0 1px rgba(255,255,255,0.2) inset;
+  color: #fff;
+}
+
+.instagram-cta {
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* =========================================================
    REMOTE GIFT SECTION
    ========================================================= */
 .remote-gift-section {
