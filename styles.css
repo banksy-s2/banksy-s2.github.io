@@ -5938,6 +5938,81 @@ body {
 }
 
 /* =========================================================
+   TRIP DIARY（スタッフ旅行記）写真スタイル
+   ========================================================= */
+.trip-hero {
+  margin: 24px 0 32px;
+  border: 1px solid rgba(201, 169, 106, 0.25);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0a0608;
+}
+.trip-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.trip-hero figcaption {
+  font-family: var(--font-mincho);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  padding: 12px 18px;
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+
+.trip-photo {
+  margin: 24px 0;
+  border: 1px solid rgba(201, 169, 106, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+  background: #0a0608;
+}
+.trip-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.trip-photo figcaption {
+  font-family: var(--font-mincho);
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 10px 16px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  font-style: italic;
+}
+
+.trip-cta {
+  margin-top: 32px;
+  padding: 24px;
+  background: linear-gradient(180deg, rgba(20, 12, 8, 0.6) 0%, rgba(8, 4, 6, 0.85) 100%);
+  border: 1px solid rgba(201, 169, 106, 0.3);
+  border-radius: 4px;
+  text-align: center;
+}
+.trip-cta p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+.trip-cta .btn {
+  margin-top: 12px;
+}
+
+@media (max-width: 720px) {
+  .trip-hero img { aspect-ratio: 4 / 3; }
+  .trip-hero figcaption,
+  .trip-photo figcaption { font-size: 12px; padding: 8px 12px; }
+  .trip-cta { padding: 18px; }
+  .trip-cta p { font-size: 13px; }
+}
+
+/* =========================================================
    VISITOR COUNTER（訪問者数カウンター・ゴールド装飾）
    ========================================================= */
 .visitor-section {
