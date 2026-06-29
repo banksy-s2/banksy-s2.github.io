@@ -5920,14 +5920,6 @@ body {
     brightness(1.0);
 }
 
-/* かりん：白っぽい背景なので少し暗くしてアートっぽく */
-.cast-card[data-no="05"] .cast-photo.has-photo {
-  filter:
-    saturate(0.85)
-    contrast(1.12)
-    brightness(0.94);
-}
-
 /* しおん：店内の赤い雰囲気を活かす */
 .cast-card[data-no="02"] .cast-photo.has-photo {
   filter:
