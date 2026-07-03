@@ -64,6 +64,7 @@ C:\Users\User\Desktop\
 | `ladies.html` | 女性向けガイド |
 | `yufuin.html` | スタッフ旅行記｜湯布院編（2026-06-08 追加）|
 | `kurume.html` | 久留米からの夜遊びガイド（2026-06-30 追加・地域AIO記事第1弾）|
+| `omuta.html` | 大牟田・荒尾からの夜遊びガイド（2026-06-30 追加・第2弾）|
 
 ### 主要アセット
 
@@ -234,8 +235,9 @@ C:\Users\User\Desktop\
 - 隠しテキスト・キーワード詰め込みは禁止（Codex指摘で過去に削除済み。ペナルティリスク）
 
 ### 次の一手（未実施）
-- ~~久留米記事~~ → **完了（kurume.html・2026-06-30）**。CV計測: ig_kurume / map_kurume
-- 地域記事の続き: 大牟田編 → 佐賀編 → 八女・筑後編（kurume.html の構成を流用）
+- ~~久留米記事~~ → **完了（kurume.html）**。CV計測: ig_kurume / map_kurume
+- ~~大牟田記事~~ → **完了（omuta.html・荒尾込み）**。CV計測: ig_omuta / map_omuta
+- 地域記事の続き: 佐賀編 → 八女・筑後・大川編（kurume/omuta の構成を流用）
 - 口コミ獲得（GBP復活後）→ AI が口コミを引用するため
 - 食べログ / ホットペッパー等の外部サイト掲載（AIの学習ソースになる）
 
