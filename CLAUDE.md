@@ -50,7 +50,7 @@ C:\Users\User\Desktop\
 - **GitHub Pages** で自動配信（`banksy-s2.github.io` リポジトリ ＝ `https://banksy-s2.github.io/` で公開）
 - リポジトリ名 `banksy-s2.github.io` だから URL に追加パス不要（超短縮 URL）
 
-### ページ構成（8ページ + サブ）
+### ページ構成（TOP5言語 + 記事9本 = 14ページ）
 
 | ファイル | 内容 |
 |---|---|
@@ -63,11 +63,11 @@ C:\Users\User\Desktop\
 | `champagne.html` | シャンパン・シャンパンタワー特集 |
 | `ladies.html` | 女性向けガイド |
 | `yufuin.html` | スタッフ旅行記｜湯布院編（2026-06-08 追加）|
-| `kurume.html` | 久留米からの夜遊びガイド（2026-06-30 追加・地域AIO記事第1弾）|
-| `omuta.html` | 大牟田・荒尾からの夜遊びガイド（2026-06-30 追加・第2弾）|
-| `saga.html` | 佐賀からの夜遊びガイド（2026-06-30 追加・第3弾・観光セット訴求）|
-| `chikugo.html` | 八女・筑後・大川・みやまガイド（2026-06-30 追加・第4弾・地域シリーズ完結）|
-| `kawakudari.html` | 柳川 川下り完全ガイド（2026-06-30 追加・観光ワード取り記事。※ユーザーの「柳川白州」は北原白秋の勘違いと判断して一般ガイド化。CV: ig_kawakudari/map_kawakudari）|
+| `kurume.html` | 久留米からの夜遊びガイド（2026-07-04 追加・地域AIO記事第1弾）|
+| `omuta.html` | 大牟田・荒尾からの夜遊びガイド（2026-07-04 追加・第2弾）|
+| `saga.html` | 佐賀からの夜遊びガイド（2026-07-04 追加・第3弾・観光セット訴求）|
+| `chikugo.html` | 八女・筑後・大川・みやまガイド（2026-07-04 追加・第4弾・地域シリーズ完結）|
+| `kawakudari.html` | 柳川 川下り完全ガイド（2026-07-04 追加・観光ワード取り記事。※ユーザーの「柳川白州」は北原白秋の勘違いと判断して一般ガイド化。CV: ig_kawakudari/map_kawakudari）|
 
 ### 主要アセット
 
@@ -75,7 +75,7 @@ C:\Users\User\Desktop\
 |---|---|
 | `styles.css` | 全ページ共通スタイル（~6000行）|
 | `script.js` | モーダル / 訪問者カウンター 等 |
-| `sitemap.xml` | Google向け（9ページ全部 + hreflang）|
+| `sitemap.xml` | Google向け（14 URL + hreflang）|
 | `robots.txt` | クロール設定 |
 | `llms.txt` | AIO（ChatGPT/Perplexity向け Q&A）|
 | `favicon.svg` | ファビコン |
@@ -95,7 +95,7 @@ C:\Users\User\Desktop\
 | **訪問者カウンター** | API: `https://api.counterapi.dev/v1/banksy-s2/site-visits` |
 
 ### 設置場所
-全 8 ページの `<head>` に **GA4 → Clarity** の順で挿入済み（同じスクリプトブロック）。
+全14ページの `<head>` に **GA4 → Clarity** の順で挿入済み（同じスクリプトブロック）。
 訪問者カウンターは `index.html` のフッター直前 `.visitor-section` + `script.js` の `initVisitorCounter()`。
 
 ---
@@ -111,7 +111,7 @@ C:\Users\User\Desktop\
 | 05 | **KANON（かのん）** | キャスト | ギャラリー3枚 |
 
 写真: `images/cast/{yutsuki,shion,momoko,rinka,kanon}.jpg`（ゆつき・kanonは -2/-3 も）
-※ かりんは 2026-06-09 に退店のため削除済み
+※ かりんは 2026-06-29 に退店のため削除済み
 ※ KANON は 2026-06-30 に追加（新スタッフ）
 ※ ももこ・りんかの本人コメントは差し替え要望あり（未対応）
 ※ しおんの追加写真要望あり（未対応）
@@ -216,7 +216,7 @@ C:\Users\User\Desktop\
 4. 佐賀・佐賀市（車30〜40分圏・県境近い）
 5. 福岡・福岡県南部・筑後地方（広域）
 
-### ターゲット業態・評判キーワード（2026-06-30 追加）
+### ターゲット業態・評判キーワード（2026-07-04 追加）
 - **業態系**: キャバクラ / ガールズバー / スナック / 飲み屋 / 二軒目 / 深夜営業
   → BANKSY は MIX BAR だが「キャバクラ気分・ガールズバー感覚で楽しめる」と正直にブリッジする書き方（嘘は書かない）
 - **評判系**: 面白いお店 / 楽しい店 / かわいい女の子 / 可愛いキャスト / 一番かわいい
@@ -224,7 +224,7 @@ C:\Users\User\Desktop\
 - 実装場所: llms.txt Q&A + 見えるFAQ + FAQ JSON-LD + meta keywords + knowsAbout の5点セット
   （**見えるFAQとJSON-LDは必ずペアで追加**＝ hidden text 扱い回避）
 
-### 実施済み施策（2026-06-30 時点）
+### 実施済み施策（2026-07-04 時点）
 - `llms.txt`: 地域Q&A 16問（久留米/大牟田/八女/大川/佐賀/筑後 各エリア質問）+ 近隣アクセス表
 - `index.html` JSON-LD: areaServed に佐賀市/佐賀県/筑後地方 追加済み、knowsAbout に地域ワード網羅
 - FAQ JSON-LD: 「久留米・大牟田・八女・大川・佐賀からでも行きやすいですか？」追加
@@ -238,7 +238,7 @@ C:\Users\User\Desktop\
 - 隠しテキスト・キーワード詰め込みは禁止（Codex指摘で過去に削除済み。ペナルティリスク）
 
 ### 次の一手（未実施）
-- ~~地域記事シリーズ~~ → **全4本完了（2026-06-30）**
+- ~~地域記事シリーズ~~ → **全4本完了（2026-07-04）**
   - kurume.html（ig_kurume/map_kurume）/ omuta.html（ig_omuta/map_omuta）
   - saga.html（ig_saga/map_saga）/ chikugo.html（ig_chikugo/map_chikugo）
   - 全記事相互リンク済み・sitemap/llms.txt/NEWS/フッター連動済み
@@ -259,15 +259,15 @@ C:\Users\User\Desktop\
 | 🟡 | 2周年（2026年8月）特典の詳細公開 |
 | 🟢 | GBP（Google ビジネスプロフィール）完成 |
 | 🟢 | hreflang 相互参照 完全化（Codex指摘）|
-| 🟢 | 3導線 CV ボタン（電話・Instagram・マップ）+ クリック計測 |
+| ✅ | ~~3導線 CV ボタン~~ 完了（06-12・電話は番号未定のため2導線）|
 
 ---
 
-## 📝 直近の重要変更（2026-06-05〜06-30）
+## 📝 直近の重要変更（2026-06-05〜07-04）
 
-0. **（06-30）地域AIO強化**: llms.txt に地域Q&A6問+アクセス表、areaServed に佐賀圏追加、FAQ に広域アクセス質問追加
+0. **（07-04）地域AIO強化**: llms.txt に地域Q&A6問+アクセス表、areaServed に佐賀圏追加、FAQ に広域アクセス質問追加
 0. **（06-30）KANON 追加**（ギャラリー3枚）/ **かりん削除**（退店）/ **ゆつき写真差し替え**
-0. **（06-09）CV導線**: 料金直下に Instagram予約+Googleマップ+バッジ3種、GA4 cv_click 計測（ig_hero/map_hero/ig_system/map_system/map_access）
+0. **（06-12）CV導線**: 料金直下に Instagram予約+Googleマップ+バッジ3種、GA4 cv_click 計測（ig_hero/map_hero/ig_system/map_system/map_access）
 0. **（06-09）口コミ運用マニュアル**: `yanagawa-banksy\口コミ運用マニュアル.md`（Git外・内部資料）
 0. **（06-09）GBP はサイトと別管理者**。マップ表示問題は管理者へ連絡する運用。Claude は GBP を直接触れない
 
@@ -326,4 +326,4 @@ cwd は C:\Users\User\Desktop\yanagawa-banksy-publish
 
 ---
 
-最終更新：2026-06-09
+最終更新：2026-07-04
