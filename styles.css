@@ -5930,6 +5930,59 @@ body {
 }
 
 /* =========================================================
+   GUIDE TABLE（ガイド記事内の比較表）
+   ========================================================= */
+.guide-table-wrap {
+  overflow-x: auto;
+  margin: 20px 0;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid rgba(201, 169, 106, 0.25);
+  border-radius: 4px;
+}
+.guide-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 13px;
+  line-height: 1.7;
+  background: rgba(10, 6, 8, 0.6);
+}
+.guide-table th,
+.guide-table td {
+  padding: 10px 12px;
+  border: 1px solid rgba(201, 169, 106, 0.18);
+  text-align: left;
+  vertical-align: top;
+  color: rgba(255, 255, 255, 0.85);
+}
+.guide-table thead th {
+  background: rgba(201, 169, 106, 0.12);
+  color: var(--gold);
+  font-family: var(--font-mincho);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  text-align: center;
+}
+.guide-table thead th:last-child {
+  background: rgba(255, 31, 122, 0.14);
+  color: var(--pink);
+}
+.guide-table tbody th {
+  background: rgba(201, 169, 106, 0.07);
+  font-weight: 600;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.9);
+}
+.guide-table tbody td:last-child {
+  background: rgba(255, 31, 122, 0.05);
+}
+.guide-table td strong { color: var(--pink); }
+@media (max-width: 720px) {
+  .guide-table { font-size: 12px; }
+  .guide-table th, .guide-table td { padding: 8px 9px; }
+}
+
+/* =========================================================
    CV STRIP（予約・マップ導線 / 料金セクション直下）
    ========================================================= */
 .cv-strip {

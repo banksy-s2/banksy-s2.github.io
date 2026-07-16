@@ -225,9 +225,12 @@ C:\Users\User\Desktop\
   （**見えるFAQとJSON-LDは必ずペアで追加**＝ hidden text 扱い回避）
 
 ### 実施済み施策（2026-07-04 時点）
-- `llms.txt`: 地域Q&A 16問（久留米/大牟田/八女/大川/佐賀/筑後 各エリア質問）+ 近隣アクセス表
+- `llms.txt`: 地域Q&A 21問 + 近隣アクセス表 + 業態比較表 + 最終更新日 + pricing.md リンク
+- `pricing.md`: AIエージェント用の機械可読料金表（ai-seoスキル推奨。料金変更時は必ずここも更新）
+- `guide.html`: キャバクラ/ガールズバー/スナック/MIX BAR **比較表**（AI引用シェア最大の比較コンテンツ。CSS: .guide-table）
+- 鮮度シグナル: guide + 地域記事5本の guide-meta に「最終更新:日付」を表示（更新したら日付も更新すること）
 - `index.html` JSON-LD: areaServed に佐賀市/佐賀県/筑後地方 追加済み、knowsAbout に地域ワード網羅
-- FAQ JSON-LD: 「久留米・大牟田・八女・大川・佐賀からでも行きやすいですか？」追加
+- FAQ JSON-LD: 地域アクセス + 業態・評判質問（見えるFAQとペア）
 - meta keywords: 全地域 + 「◯◯ バー」形の複合ワード
 - robots.txt: GPTBot / PerplexityBot / ClaudeBot / Google-Extended 等 全AI クローラー許可
 
