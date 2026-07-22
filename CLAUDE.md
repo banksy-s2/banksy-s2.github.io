@@ -8,7 +8,7 @@
 
 1. **このファイルを最後まで読む**（斜め読み禁止。特に「編集ルール」「AIO戦略」「未完了タスク」）
 2. 作業前に `git log --oneline -5` で最新状態を確認（勝手に古い認識で上書きしない）
-3. 編集は必ず `yanagawa-banksy-publish\`（Git側）で行い、`yanagawa-banksy\`（workspace）へ同期
+3. 編集場所はセッションの種類で変わる（下の「📱 セッションの種類」参照）。PCセッションなら `yanagawa-banksy-publish\`（Git側）で編集し `yanagawa-banksy\`（workspace）へ同期。携帯・クラウドセッションならクラウド上のクローンを直接編集して push
 4. **push 前に必ず commit 内容を確認**。破壊的変更（削除・大量置換）は user に確認してから
 5. ユーザーの「あんだして」=「案出して」。**削除・undo と勘違いしない**（過去に誤削除事故あり）
 6. 不明点は推測で進めず、選択肢を3〜5個提示して user に聞く
@@ -41,6 +41,35 @@ C:\Users\User\Desktop\
 - 編集時は **必ず両フォルダ同期** すること（Copy-Item で `-publish` から workspace へ反映 or 逆）
 - Git は `yanagawa-banksy-publish\` の方
 - ワークスペース側には `luxury\` というサブフォルダ（別バージョンの試作、ライブには反映されない）
+
+---
+
+## 📱 セッションの種類（PC / 携帯・クラウド）— 2026-07-22 追加
+
+このプロジェクトは **2種類の環境** から作業される。まず自分がどちらで動いているか確認すること
+（Windows パスが見える＝PC、`/home/user/banksy-s2.github.io` みたいな Linux パス＝クラウド）。
+
+### ① PCセッション（Claude Code CLI on Windows）
+- 従来通り。`yanagawa-banksy-publish\` で編集 → workspace へ Copy-Item 同期 → push
+- 上の「📁 フォルダ構成」のルールが全部適用される
+
+### ② 携帯・クラウドセッション（Claude アプリ / claude.ai/code から起動）
+- クラウドの隔離コンテナ内で GitHub から直接クローンして作業（PCのフォルダには触れない）
+- **編集 → commit → push まで全部クラウドで完結**。GitHub Pages へは push 後 30秒〜2分で反映（PCと同じ）
+- **workspace 同期はできないので不要**。代わりに次回 PC セッションの冒頭で必ず：
+  ```powershell
+  cd C:\Users\User\Desktop\yanagawa-banksy-publish
+  git pull origin main
+  # その後 workspace へ同期（HTMLなど変更ファイルを Copy-Item）
+  ```
+- `luxury\` フォルダ・`口コミ運用マニュアル.md` など **Git外のファイルは参照不可**（PCにしかない）
+- PowerShell 前提の手順（BOM-less UTF-8 書き出し等）は不要。普通に Edit/Write ツールでOK
+- コンテナは使い捨て。**push し忘れると作業が消える**ので、作業完了ごとに必ず push
+
+### 携帯からの起動方法（ユーザー向けメモ）
+1. スマホの **Claude アプリ**（または Safari/Chrome で claude.ai）を開く
+2. **Code（コード）** タブ → リポジトリ `banksy-s2/banksy-s2.github.io` を選んで新規セッション
+3. あとはチャットで指示するだけ（「料金変えて」「キャスト追加して」等）。push まで Claude がやる
 
 ---
 
@@ -329,4 +358,4 @@ cwd は C:\Users\User\Desktop\yanagawa-banksy-publish
 
 ---
 
-最終更新：2026-07-19
+最終更新：2026-07-22
