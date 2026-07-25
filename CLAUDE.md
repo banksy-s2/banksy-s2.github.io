@@ -248,8 +248,19 @@ C:\Users\User\Desktop\
   - kurume.html（ig_kurume/map_kurume）/ omuta.html（ig_omuta/map_omuta）
   - saga.html（ig_saga/map_saga）/ chikugo.html（ig_chikugo/map_chikugo）
   - 全記事相互リンク済み・sitemap/llms.txt/NEWS/フッター連動済み
+### AIO強化 第2弾（2026-07-24 実施）
+- `llms.txt`: 冒頭に **基本情報ファクトシート**（NAP・予算目安・キャスト数・席種等の表）と **開催中イベント表** を追加
+  → AIが引用しやすい「具体的な数値・事実」を1箇所に集約（GEO研究: 統計/数値の明示で引用率+37%）
+- 見えるFAQ + FAQ JSON-LD を**ペアで3問追加**: ①予算いくら ②8月イベント ③久留米・大牟田・八女・大川・佐賀からのアクセス
+- 記事6本（guide/kurume/omuta/saga/chikugo/kawakudari）に**8月イベント告知を追記** + 最終更新日を 07-24 に更新（鮮度シグナル）
+- **`yanagawa-banksy\外部サイト掲載キット.md` 作成**（Git外・内部資料）
+  → NAP統一表・紹介文150字/300字・登録先7サイト（食べログ/Retty/エキテン/Yahoo!プレイス/Bing Places/NAVITIME/ホットペッパー）
+
+### 次の一手（未実施）— ここが最大の伸びしろ
+- **外部サイト掲載**（`外部サイト掲載キット.md` 参照）。「柳川 バー おすすめ」等の**店名なし検索**では
+  AIが食べログ・Retty等のまとめサイトを引用するため、そこに載っていないと推薦されない。
+  実測（2026-07-24）: 店名あり検索は公式サイトが1位で完璧。店名なし検索はBANKSYが不在＝ここを埋めるのが最優先
 - 口コミ獲得（GBP復活後）→ AI が口コミを引用するため
-- 食べログ / ホットペッパー等の外部サイト掲載（AIの学習ソースになる）
 
 ---
 
