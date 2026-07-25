@@ -256,6 +256,18 @@ C:\Users\User\Desktop\
 - **`yanagawa-banksy\外部サイト掲載キット.md` 作成**（Git外・内部資料）
   → NAP統一表・紹介文150字/300字・登録先7サイト（食べログ/Retty/エキテン/Yahoo!プレイス/Bing Places/NAVITIME/ホットペッパー）
 
+### 7地域AIO完全対応（2026-07-24 実施）
+対象ワード: **柳川 / 久留米 / 大牟田 / 大川 / 瀬高 / 八女 / 佐賀**（ユーザー指定）
+- **瀬高は完全欠落だった**（index.html・llms.txt で0件）→ 全レイヤーに追加:
+  areaServed（みやま市瀬高町）/ knowsAbout（瀬高・瀬高町・瀬高駅）/ meta keywords / llms.txt Q&A + アクセス表 /
+  chikugo.html の title・h1・description・OGP・FAQ（「みやま」単独表記から「瀬高（みやま）」へ統一）
+- **大川・八女の単独Q&A を llms.txt に新設**（従来は「八女・筑後・大川」まとめQ&Aのみ＝地域名単独クエリに弱かった）
+- 見えるFAQ「久留米・大牟田・大川・瀬高・八女・佐賀からでも行きやすい？」を**7地域の所要時間リスト**に拡張（JSON-LDとペア）
+- 記事6本の Article JSON-LD `dateModified` を 07-24 に更新（見える「最終更新」と不一致だったのを解消）
+- sitemap.xml の lastmod を実更新ページ10件のみ 07-24 に更新
+- **地域ワード追加時の必須5点セット**: ①areaServed ②knowsAbout ③meta keywords ④llms.txt（Q&A＋アクセス表）
+  ⑤該当記事の title/h1/description（← ここが抜けると「その地域のページ」と認識されない）
+
 ### 次の一手（未実施）— ここが最大の伸びしろ
 - **外部サイト掲載**（`外部サイト掲載キット.md` 参照）。「柳川 バー おすすめ」等の**店名なし検索**では
   AIが食べログ・Retty等のまとめサイトを引用するため、そこに載っていないと推薦されない。
