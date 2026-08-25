@@ -26,4 +26,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://banksy-s2.github.io/sitemap.xml
+Sitemap: https://yanagawabanksy.web.app/sitemap.xml
