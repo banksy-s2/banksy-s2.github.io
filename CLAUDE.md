@@ -19,7 +19,8 @@
 
 | 項目 | 値 |
 |---|---|
-| 公開URL | https://banksy-s2.github.io/ |
+| 公開URL | **https://yanagawabanksy.web.app/**（2026-08-25〜 Firebase Hosting） |
+| 旧URL | https://banksy-s2.github.io/ （GitHubアカウント凍結で404中。復旧しても Firebase が正） |
 | GitHub | https://github.com/banksy-s2/banksy-s2.github.io |
 | 旧URL（404） | `https://oneokrockmasato1020-bit.github.io/yanagawa-banksy/` （2026-06-08 移行済） |
 | 旧 GitHub username | `oneokrockmasato1020-bit` |
@@ -47,8 +48,10 @@ C:\Users\User\Desktop\
 ## 🛠️ 技術スタック
 
 - **素のHTML/CSS/JavaScript**（フレームワーク無し）
-- **GitHub Pages** で自動配信（`banksy-s2.github.io` リポジトリ ＝ `https://banksy-s2.github.io/` で公開）
-- リポジトリ名 `banksy-s2.github.io` だから URL に追加パス不要（超短縮 URL）
+- **Firebase Hosting** で配信（2026-08-25〜）: project `yanagawabanksy` / site `yanagawabanksy` → https://yanagawabanksy.web.app/
+- デプロイ方法: scratchpad に site/ を作って firebase.json（public: "site"）と共に
+  `firebase deploy --only hosting --project yanagawabanksy`。**publish フォルダに firebase.json は置かない**
+- GitHub リポジトリはソース管理として継続（push も可能）。ただし GitHub Pages はアカウント凍結中で404
 
 ### ページ構成（TOP5言語 + 記事9本 = 14ページ）
 
@@ -92,7 +95,7 @@ C:\Users\User\Desktop\
 | **GA4** | 測定ID: `G-PSTJRFPBBK` |
 | **Search Console** | 認証済（`googlece4125260df2cde1.html` ファイル方式）|
 | **Microsoft Clarity** | プロジェクトID: `x25u7n0b42` |
-| **訪問者カウンター** | API: `https://api.counterapi.dev/v1/banksy-s2/site-visits` |
+| **訪問者カウンター** | ⛔ 停止中（counterapi.dev v1 が 2026-08 廃止で410。復活は v2 workspace 登録後に script.js 参照） |
 
 ### 設置場所
 全14ページの `<head>` に **GA4 → Clarity** の順で挿入済み（同じスクリプトブロック）。
@@ -100,7 +103,7 @@ C:\Users\User\Desktop\
 
 ---
 
-## 👯 キャスト（7名）
+## 👯 キャスト（6名）
 
 | # | 名前 | 役割 | 写真 |
 |---|---|---|---|
@@ -108,13 +111,12 @@ C:\Users\User\Desktop\
 | 02 | **しおん** | キャスト | 1枚 |
 | 03 | **ももこ** | キャスト | 1枚 |
 | 04 | **りんか** | キャスト | 1枚 |
-| 05 | **KANON（かのん）** | キャスト | ギャラリー3枚 |
-| 06 | **NANA（なな）** | キャスト | 1枚 |
-| 07 | **AROMA（あろま）** | キャスト | 1枚 |
+| 05 | **NANA（なな）** | キャスト | 1枚 |
+| 06 | **AROMA（あろま）** | キャスト | 1枚 |
 
 写真: `images/cast/{yutsuki,shion,momoko,rinka,kanon,nana,aroma}.jpg`（ゆつき・kanonは -2/-3 も）
 ※ かりんは 2026-06-29 に退店のため削除済み
-※ KANON は 2026-06-30 に追加（新スタッフ）
+※ KANON は 2026-08-25 に退店のため削除済み（画像ファイルは残置・かりんと同様）
 ※ NANA・AROMA は 2026-07-24 に追加（新スタッフ。写真元: Downloads\新しいフォルダー の LINE 画像）
 ※ ももこ・りんか・NANA・AROMA の本人コメントは仮（差し替え待ち）
 ※ しおんの追加写真要望あり（未対応）
@@ -167,8 +169,8 @@ C:\Users\User\Desktop\
 ### 編集後の必須手順
 1. `yanagawa-banksy-publish\` で編集
 2. `yanagawa-banksy\` へ Copy-Item で同期
-3. `git add` → `git commit` → `git push`
-4. GitHub Pages デプロイは push 後 30秒〜2分
+3. `git add` → `git commit` → `git push`（ソース履歴の保全。GitHub Pages はもう配信に使っていない）
+4. **Firebase にデプロイ**（技術スタック欄の手順）→ https://yanagawabanksy.web.app/ を目視確認
 
 ### push 時の注意
 - PowerShell で `git push origin main 2>&1` すると、git の stderr が `NativeCommandError` として表示されるが**実際は成功してる**（PowerShell の仕様）
@@ -355,4 +357,4 @@ cwd は C:\Users\User\Desktop\yanagawa-banksy-publish
 
 ---
 
-最終更新：2026-07-24
+最終更新：2026-08-25

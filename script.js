@@ -428,70 +428,10 @@
 
   // ===== VISITOR COUNTER（訪問者カウンター） =====
   (function initVisitorCounter() {
-    const el = document.getElementById("visitorCount");
-    if (!el) return;
-    const live = document.getElementById("visitorCountLive");
-
-    // 過去のGA4アクセス分を底上げしたい場合はここの数字を変更
-    const BASELINE = 0;
-
-    // セッション単位で重複カウント防止
-    const SESSION_KEY = "banksy_visited_session";
-    const alreadyCounted = sessionStorage.getItem(SESSION_KEY) === "1";
-
-    const formatter = new Intl.NumberFormat("ja-JP");
-
-    // 数字をカウントアップ表示（視覚のみ・aria には載せない）
-    function animateCount(target) {
-      const duration = 1400;
-      const startTime = performance.now();
-      function frame(now) {
-        const t = Math.min(1, (now - startTime) / duration);
-        const eased = 1 - Math.pow(1 - t, 3);
-        const value = Math.floor(eased * target);
-        el.textContent = formatter.format(value);
-        if (t < 1) requestAnimationFrame(frame);
-        else el.textContent = formatter.format(target);
-      }
-      requestAnimationFrame(frame);
-      // スクリーンリーダーには最終値だけ 1 回伝える
-      if (live) live.textContent = "累計訪問者数 " + formatter.format(target) + " 人";
-    }
-
-    // 失敗時の固定表示（— のまま放置せず明示）
-    function showUnavailable() {
-      const last = parseInt(localStorage.getItem("banksy_last_count") || "0", 10);
-      if (last > 0) {
-        animateCount(last + BASELINE);
-        return;
-      }
-      el.textContent = "✦";
-      el.style.fontSize = "20px";
-      el.style.letterSpacing = "0.5em";
-      if (live) live.textContent = "訪問者数は現在取得できません";
-    }
-
-    // counterapi.dev — タイムアウト付き fetch（4 秒）
-    const endpoint = alreadyCounted
-      ? "https://api.counterapi.dev/v1/banksy-s2/site-visits"
-      : "https://api.counterapi.dev/v1/banksy-s2/site-visits/up";
-
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 4000);
-
-    fetch(endpoint, { cache: "no-store", signal: controller.signal })
-      .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then((data) => {
-        clearTimeout(timer);
-        const count = parseInt(data.count, 10);
-        if (!Number.isFinite(count)) return showUnavailable();
-        sessionStorage.setItem(SESSION_KEY, "1");
-        localStorage.setItem("banksy_last_count", String(count));
-        animateCount(count + BASELINE);
-      })
-      .catch(() => {
-        clearTimeout(timer);
-        showUnavailable();
-      });
-  })();
+    // counterapi.dev v1 が 2026-08 に廃止（410 Gone）されたため、カウンターは一時停止中。
+    // 復活する場合: counterapi.dev で v2 workspace を登録し、下の hidden 化を外して
+    // v2 エンドポイント https://api.counterapi.dev/v2/{workspace}/site-visits/up に差し替えること。
+    const sec = document.querySelector(".visitor-section");
+    if (sec) sec.hidden = true;
+    })();
 })();
