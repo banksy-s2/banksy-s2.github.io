@@ -154,10 +154,11 @@ C:\Users\User\Desktop\
 ②素材の提供（写真はDownloads置き or チャット貼り付け）③削除系の承認 ④デプロイ後にスマホで目視1回。
 それ以外（編集・検証・同期・commit・デプロイ・本番確認）はClaudeの仕事。
 
-**未完了の1回きり作業（2026-08-25時点）**:
-- [ ] Instagram プロフィールURLを https://yanagawabanksy.web.app に差し替え
-- [ ] Search Console に新URLプロパティ登録 + sitemap送信（検索復帰のボトルネック）
-- [ ] GitHubサポートから返信が来たら Claude に見せる
+**URL引っ越しの1回きり作業 → 全部完了（2026-08-25）**:
+- [x] Search Console 新URLプロパティ登録 + sitemap送信
+- [x] Instagram / TikTok / BASE のプロフィールURL差し替え
+- [x] GBP（Googleマップ）のウェブサイト欄 → 管理者へ依頼文送付済み（反映されたか後日マップで確認）
+- [ ] GitHubサポートから返信が来たら Claude に見せる（継続）
 
 ## ✍️ 編集ルール
 
