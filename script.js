@@ -428,10 +428,57 @@
 
   // ===== VISITOR COUNTER（訪問者カウンター） =====
   (function initVisitorCounter() {
-    // counterapi.dev v1 が 2026-08 に廃止（410 Gone）されたため、カウンターは一時停止中。
-    // 復活する場合: counterapi.dev で v2 workspace を登録し、下の hidden 化を外して
-    // v2 エンドポイント https://api.counterapi.dev/v2/{workspace}/site-visits/up に差し替えること。
+    // 自前 Firestore カウンター（2026-09-20 移行。旧 counterapi v1 廃止のため。253 から継続）
+    // ルール側で「+1 の更新のみ許可」に制限済み（改ざん・削除は 403）
+    const el = document.getElementById("visitorCount");
+    if (!el) return;
+    const live = document.getElementById("visitorCountLive");
     const sec = document.querySelector(".visitor-section");
-    if (sec) sec.hidden = true;
+    const DOC = "https://firestore.googleapis.com/v1/projects/yanagawabanksy/databases/(default)/documents/stats/visits";
+    const SESSION_KEY = "banksy_visited_session";
+    let alreadyCounted = false;
+    try { alreadyCounted = sessionStorage.getItem(SESSION_KEY) === "1"; } catch (e) {}
+
+    const formatter = new Intl.NumberFormat("ja-JP");
+    function animateCount(target) {
+      const duration = 1400;
+      const startTime = performance.now();
+      function frame(now) {
+        const t = Math.min(1, (now - startTime) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = formatter.format(Math.floor(eased * target));
+        if (t < 1) requestAnimationFrame(frame);
+        else el.textContent = formatter.format(target);
+      }
+      requestAnimationFrame(frame);
+      if (live) live.textContent = "累計訪問者数 " + formatter.format(target) + " 人";
+    }
+    // 失敗時はセクションごと隠す（壊れた表示を出さない・フェイルクローズ）
+    function showUnavailable() { if (sec) sec.hidden = true; }
+
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 4000);
+    fetch(DOC, { cache: "no-store", signal: controller.signal })
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then(async (data) => {
+        clearTimeout(timer);
+        let count = parseInt(data.fields.count.integerValue, 10);
+        if (!Number.isFinite(count)) return showUnavailable();
+        if (!alreadyCounted) {
+          try {
+            const res = await fetch(DOC + "?updateMask.fieldPaths=count", {
+              method: "PATCH",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ fields: { count: { integerValue: String(count + 1) } } })
+            });
+            if (res.ok) {
+              count = count + 1;
+              try { sessionStorage.setItem(SESSION_KEY, "1"); } catch (e) {}
+            }
+          } catch (e) {}
+        }
+        animateCount(count);
+      })
+      .catch(() => { clearTimeout(timer); showUnavailable(); });
     })();
 })();

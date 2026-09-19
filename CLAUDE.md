@@ -102,7 +102,7 @@ C:\Users\User\Desktop\
 | **GA4** | 測定ID: `G-PSTJRFPBBK` |
 | **Search Console** | 認証済（`googlece4125260df2cde1.html` ファイル方式）|
 | **Microsoft Clarity** | プロジェクトID: `x25u7n0b42` |
-| **訪問者カウンター** | ⛔ 停止中（counterapi.dev v1 が 2026-08 廃止で410。復活は v2 workspace 登録後に script.js 参照） |
+| **訪問者カウンター** | ✅ 自前Firestore版（2026-09-20〜）。doc: `stats/visits`（project yanagawabanksy）。ルールで+1更新のみ許可。253から継続（8/25〜9/20は欠測）。現在値の確認: `curl -s "https://firestore.googleapis.com/v1/projects/yanagawabanksy/databases/(default)/documents/stats/visits"` |
 
 ### 設置場所
 全14ページの `<head>` に **GA4 → Clarity** の順で挿入済み（同じスクリプトブロック）。
