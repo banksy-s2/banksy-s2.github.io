@@ -51,6 +51,12 @@ C:\Users\User\Desktop\
 - **Firebase Hosting** で配信（2026-08-25〜）: project `yanagawabanksy` / site `yanagawabanksy` → https://yanagawabanksy.web.app/
 - デプロイ方法: scratchpad に site/ を作って firebase.json（public: "site"）と共に
   `firebase deploy --only hosting --project yanagawabanksy`。**publish フォルダに firebase.json は置かない**
+- ⚠️ **デプロイ時の鉄則（2026-09-20の事故から）**:
+  1. **ステージは毎回 rm -rf してゼロから全ファイルコピー**（差分コピーでの使い回し禁止。
+     scratchpad は Windows の一時掃除で中身が消えることがあり、HTMLだけの不完全デプロイで
+     styles.css/script.js/画像が全404＝サイト崩壊した事故あり。Firebaseは「ステージに無いファイルは
+     本番からも消す」仕様）
+  2. **デプロイ後は HTML だけでなく styles.css / script.js / 画像1枚の HTTP 200 を必ず確認**してから完了報告
 - GitHub リポジトリはソース管理として継続（push も可能）。ただし GitHub Pages はアカウント凍結中で404
 
 ### ページ構成（TOP5言語 + 記事9本 = 14ページ）
