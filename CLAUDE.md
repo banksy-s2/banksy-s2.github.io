@@ -81,6 +81,7 @@ C:\Users\User\Desktop\
 | `sitemap.xml` | Google向け（14 URL + hreflang）|
 | `robots.txt` | クロール設定 |
 | `llms.txt` | AIO（ChatGPT/Perplexity向け Q&A）|
+| `2fde30e4d0f7f19b95bdd363ff22ae2f.txt` | IndexNow キーファイル（2026-09-20導入。Bing=ChatGPT検索経路へのURL通知用。ページ追加/更新時は api.indexnow.org へPOSTで通知できる）|
 | `favicon.svg` | ファビコン |
 | `og-image.jpg` | OG画像 |
 | `images/` | キャスト写真等 |
