@@ -163,6 +163,11 @@ C:\Users\User\Desktop\
 - [x] GBP（Googleマップ）のウェブサイト欄 → 管理者へ依頼文送付済み（反映されたか後日マップで確認）
 - [ ] GitHubサポートから返信が来たら Claude に見せる（継続）
 
+**Bing/ChatGPT経路対策 → 完了（2026-09-20）**:
+- [x] IndexNow 導入（キーファイル設置・全15URL送信済み。以後の更新時も通知可能）
+- [x] Bing Webmaster Tools 登録（GSCからインポートで yanagawabanksy.web.app + ai-tech-times.web.app、sitemap込み）
+→ ChatGPT/Copilot の検索網（Bing索引）への登録経路が両方開通。表示状況は https://www.bing.com/webmasters で確認可
+
 ## ✍️ 編集ルール
 
 ### コミットメッセージ
