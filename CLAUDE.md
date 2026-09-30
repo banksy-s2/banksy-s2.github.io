@@ -20,7 +20,7 @@
 | 項目 | 値 |
 |---|---|
 | 公開URL | **https://yanagawabanksy.web.app/**（2026-08-25〜 Firebase Hosting） |
-| 旧URL | https://banksy-s2.github.io/ （GitHubアカウント凍結で404中。復旧しても Firebase が正） |
+| 旧URL | https://banksy-s2.github.io/ （2026-10-01 凍結解除で復活。**全ページに新URLへの自動転送を設置済み**。Firebase が正のまま） |
 | GitHub | https://github.com/banksy-s2/banksy-s2.github.io |
 | 旧URL（404） | `https://oneokrockmasato1020-bit.github.io/yanagawa-banksy/` （2026-06-08 移行済） |
 | 旧 GitHub username | `oneokrockmasato1020-bit` |
@@ -57,7 +57,9 @@ C:\Users\User\Desktop\
      styles.css/script.js/画像が全404＝サイト崩壊した事故あり。Firebaseは「ステージに無いファイルは
      本番からも消す」仕様）
   2. **デプロイ後は HTML だけでなく styles.css / script.js / 画像1枚の HTTP 200 を必ず確認**してから完了報告
-- GitHub リポジトリはソース管理として継続（push も可能）。ただし GitHub Pages はアカウント凍結中で404
+- GitHub リポジトリはソース管理として継続。**GitHub Pages も復活済み（2026-10-01 凍結解除）**:
+  push すると旧URLにも自動デプロイされ、全ページ head のインラインJSが新URLへ転送する（canonical も新URL向き）
+  → 旧URLは「検索評価を新URLへ流す道標」。**Search Console の削除申請は絶対にしない**こと（資産を消すことになる）
 
 ### ページ構成（TOP5言語 + 記事9本 = 14ページ）
 
@@ -167,7 +169,7 @@ C:\Users\User\Desktop\
 - [x] Search Console 新URLプロパティ登録 + sitemap送信
 - [x] Instagram / TikTok / BASE のプロフィールURL差し替え
 - [x] GBP（Googleマップ）のウェブサイト欄 → 管理者へ依頼文送付済み（反映されたか後日マップで確認）
-- [ ] GitHubサポートから返信が来たら Claude に見せる（継続）
+- [x] GitHub凍結 → **2026-10-01 解除確認**（アカウント・リポジトリ・Pages すべて復活。監視タスクは削除済み）
 
 **Bing/ChatGPT経路対策 → 完了（2026-09-20）**:
 - [x] IndexNow 導入（キーファイル設置・全15URL送信済み。以後の更新時も通知可能）
