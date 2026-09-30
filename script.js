@@ -1,3 +1,9 @@
+// 旧URL(banksy-s2.github.io)からの自動転送（2026-10-01 GitHub凍結解除を受けた恒久措置）
+// 検索エンジンには canonical + この転送で「正式サイトは yanagawabanksy.web.app」と伝わる
+if (location.hostname === "banksy-s2.github.io") {
+  location.replace("https://yanagawabanksy.web.app" + location.pathname + location.search + location.hash);
+}
+
 // =========================================================
 // YANAGAWA BANKSY — luxury interactions (¥6M tier)
 // loader / custom cursor / magnetic / parallax /
