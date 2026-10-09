@@ -176,6 +176,15 @@ C:\Users\User\Desktop\
 - [x] Bing Webmaster Tools 登録（GSCからインポートで yanagawabanksy.web.app + ai-tech-times.web.app、sitemap込み）
 → ChatGPT/Copilot の検索網（Bing索引）への登録経路が両方開通。表示状況は https://www.bing.com/webmasters で確認可
 
+## 🎨 2026-10-09 全面リデザイン(本採用)
+- styles.css 末尾の「リデザイン層 v1〜v6」が新デザイン。**トップは body.home スコープ**、記事は .guide-article スコープ
+- デザイン言語: 店内グラフィティ写真のヒーロー/手描きスプレーSVG/左揃え+ピンク筆致見出し/
+  料金セクションは「白壁メニュー」(明色反転)/英字eyebrow(.kicker)はhomeで非表示
+- CSS/JS/画像はキャッシュバスター運用(?v=日付)。**変更したら版番号も必ず上げる**(上げ忘れ事故あり)
+- 旧デザインに戻す場合: リデザイン層を削除(追記のみなので安全)
+- ハロウィンイベント(10/30-31)掲載中: NEWSポスター+Event JSON-LD+llms.txt。**11/1に終了処理すること**
+  (毎月1日の自動タスク banksy-monthly-report が鮮度チェックで検知する)
+
 ## ✍️ 編集ルール
 
 ### コミットメッセージ
