@@ -6729,3 +6729,14 @@ body {
 
 .guide-article .breadcrumb { color: rgba(255,255,255,.55); }
 .guide-article table { border-color: rgba(201,169,106,.3); }
+
+/* ---- 修正 2026-10-09: POINT行組みでRECOMMENDカードの文字が明背景に白/金のまま残る問題 ---- */
+.home .point-section .point-card { text-align: left; }
+.home .point-section .point-card.featured h3 { color: var(--ink-dark, #1b1511); }
+.home .point-section .point-card.featured p { color: rgba(0, 0, 0, 0.7); }
+.home .point-section .point-badge {
+  position: static;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.home .point-section .point-mark { margin: 0 0 16px; }
