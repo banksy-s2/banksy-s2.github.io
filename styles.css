@@ -6740,3 +6740,39 @@ body {
   margin-bottom: 12px;
 }
 .home .point-section .point-mark { margin: 0 0 16px; }
+
+/* ---- 修正 2026-10-09 その2: Codexレビュー指摘(白壁上の白文字ほか) ---- */
+/* 1) 日曜イベントカード: ピンク背景を復活(article一括透明化に負けていた) */
+.home .system-section .weekly-card.featured {
+  background: linear-gradient(160deg, rgba(255,31,122,0.95) 0%, rgba(196,19,91,1) 100%);
+  border: 1px solid var(--pink, #FF1F7A);
+}
+/* 2) 料金タグ: 旧background-clip:textが残り矩形背景が描けない問題 */
+.home .system-section .price-card-tag {
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: currentColor;
+}
+/* 3) 記事ページのアウトラインボタン: ホバーで金背景×ピンク文字になる問題 */
+.guide-article .btn-outline:hover {
+  background: #fff;
+  border-color: #fff;
+  color: #0a0608;
+  transform: none;
+}
+/* 4) MANIFESTO: 実クラス(.manifesto-card)を対象にカードレス化 */
+.home .manifesto-section .manifesto-card { background: none; border: none; box-shadow: none; }
+.home .manifesto-section .manifesto-card::before,
+.home .manifesto-section .manifesto-card::after { display: none; }
+/* 5) FAQ: 旧カードの枠・影・ぼかしを完全に消す */
+.home .faq-item {
+  border: none;
+  border-bottom: 1px solid rgba(201,169,106,.22);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+/* 6) モバイル2列時のキャスト名を少し小さく(はみ出し予防) */
+@media (max-width: 639px) {
+  .home .cast-grid .cast-card:not(:first-child) .cast-name-overlay { font-size: 16px; }
+}
