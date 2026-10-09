@@ -4,6 +4,23 @@ if (location.hostname === "banksy-s2.github.io") {
   location.replace("https://yanagawabanksy.web.app" + location.pathname + location.search + location.hash);
 }
 
+// 求人動画: 画面に入ったら読み込み&再生、外れたら停止(初期5MBダウンロード防止)
+(function lazyRecruitVideo() {
+  var v = document.getElementById("recruitVideo");
+  if (!v) return;
+  if (!("IntersectionObserver" in window)) { v.play().catch(function(){}); return; }
+  var io = new IntersectionObserver(function (es) {
+    for (var i = 0; i < es.length; i++) {
+      if (es[i].isIntersecting) {
+        v.play().catch(function(){});
+        io.disconnect();  // 一度再生を始めたら監視終了(ループ動画のため)
+        break;
+      }
+    }
+  }, { threshold: 0.15 });
+  io.observe(v);
+})();
+
 // =========================================================
 // YANAGAWA BANKSY — luxury interactions (¥6M tier)
 // loader / custom cursor / magnetic / parallax /

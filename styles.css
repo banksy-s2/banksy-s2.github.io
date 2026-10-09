@@ -6293,3 +6293,439 @@ body {
     letter-spacing: 0.28em;
   }
 }
+
+/* ============================================================
+   2026-10 HOME リデザイン層（body.home スコープ）
+   方針: 店の実物(グラフィティ壁×ピンクネオン)を主役に。
+   英語eyebrow廃止・左揃え・装飾は「店の壁の手描き」由来のみ。
+   ============================================================ */
+
+/* ---- ヒーロー: 店内写真フルブリード ---- */
+.home .hero { min-height: 100svh; }
+.home .hero-bg {
+  background:
+    linear-gradient(180deg, rgba(7,4,8,.72) 0%, rgba(7,4,8,.35) 40%, rgba(7,4,8,.88) 86%),
+    url("images/store/interior-2.jpg?v=20260920p") center 38% / cover no-repeat;
+  opacity: 1;
+  filter: saturate(1.08) contrast(1.04);
+}
+.home .hero-eyebrow,
+.home .hero-divider,
+.home .hero-vertical-left { display: none; }
+
+.home .hero-vertical-right {
+  right: 18px; top: 50%; transform: translateY(-50%);
+  color: var(--gold, #C9A96A); opacity: .85;
+  text-shadow: 0 1px 10px rgba(0,0,0,.8);
+}
+
+.home .hero-stage {
+  position: absolute; left: 6vw; right: 6vw; bottom: 11svh;
+  max-width: 760px; text-align: left; transform: none;
+}
+
+/* ロゴは小さく上品に（h1は維持=SEOそのまま） */
+.home .hero-title { display: block; margin: 0 0 18px; }
+.home .hero-title .hero-line { display: inline-block; }
+.home .hero-title .line-1 {
+  font-size: clamp(15px, 2.4vw, 20px); letter-spacing: .5em;
+  color: var(--gold, #C9A96A); margin-right: .4em;
+}
+.home .hero-title .line-2 {
+  font-size: clamp(26px, 4.6vw, 42px); letter-spacing: .14em;
+  color: #FF1F7A;
+  text-shadow: 0 0 14px rgba(255,31,122,.75), 0 0 42px rgba(255,31,122,.4);
+  animation: neon-ignite 1.7s cubic-bezier(.2,.7,.3,1) .35s 1 both;
+}
+@keyframes neon-ignite {
+  0% { opacity: .15; text-shadow: none; }
+  7% { opacity: .9; }
+  11% { opacity: .25; text-shadow: none; }
+  18% { opacity: 1; }
+  24% { opacity: .5; }
+  32%,100% { opacity: 1; text-shadow: 0 0 14px rgba(255,31,122,.75), 0 0 42px rgba(255,31,122,.4); }
+}
+
+/* 主役の和文見出し */
+.home .hero-tag {
+  font-family: "Shippori Mincho", serif;
+  font-size: clamp(40px, 10.4vw, 86px);
+  line-height: 1.32; letter-spacing: .04em;
+  color: #F6F2EA; max-width: 6.4em; margin: 0 0 6px;
+  text-shadow: 0 2px 26px rgba(0,0,0,.85);
+}
+.home .spray-line {
+  display: block; width: min(62vw, 330px); height: auto; margin: 2px 0 20px 4px;
+}
+.home .spray-line path {
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+  animation: spray-draw .7s ease-out 1.35s 1 forwards;
+}
+@keyframes spray-draw { to { stroke-dashoffset: 0; } }
+
+.home .hero-jp {
+  font-size: clamp(14px, 2vw, 17px); line-height: 2;
+  color: rgba(255,255,255,.88); margin: 0 0 30px;
+  text-shadow: 0 1px 14px rgba(0,0,0,.9);
+}
+
+/* ボタン: グラデ角丸をやめ、直線的で潔く */
+.home .hero-actions { justify-content: flex-start; gap: 12px; }
+.home .btn {
+  border-radius: 3px; background-image: none; box-shadow: none;
+  letter-spacing: .1em;
+}
+.home .btn-primary {
+  background: #FF1F7A; color: #0a0608; font-weight: 700;
+  border: 1px solid #FF1F7A;
+}
+.home .btn-primary:hover { background: #ff4890; transform: none; }
+.home .btn-ghost {
+  background: rgba(7,4,8,.45); border: 1px solid rgba(255,255,255,.55);
+  color: #fff; backdrop-filter: blur(3px);
+}
+.home .hero-meta {
+  background: none; border-top: 1px solid rgba(201,169,106,.3);
+  gap: 28px; padding-top: 14px;
+}
+.home .hero-meta .meta-cell { background: none; border: none; }
+
+/* ---- セクション: 英語eyebrow廃止・左揃え ---- */
+.home .kicker { display: none; }
+.home .section-head { text-align: left; }
+.home .section-head.light { text-align: left; }
+.home .section-title { letter-spacing: .02em; }
+.home .section-sub {
+  color: var(--gold, #C9A96A); letter-spacing: .06em;
+  margin-top: 6px;
+}
+/* 見出し左の筆致アクセント（店の壁のストローク） */
+.home .section-head { position: relative; padding-left: 22px; }
+.home .section-head::before {
+  content: ""; position: absolute; left: 0; top: .35em; bottom: .4em;
+  width: 6px; border-radius: 3px;
+  background: linear-gradient(180deg, #FF1F7A, rgba(255,31,122,.15));
+}
+
+/* 連番は工程ではないため非表示（01/02/03） */
+.home .point-num { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .home .hero-title .line-2, .home .spray-line path { animation: none; }
+  .home .spray-line path { stroke-dashoffset: 0; }
+}
+
+@media (max-width: 640px) {
+  .home .hero-stage { bottom: 8svh; }
+  .home .hero-vertical-right { display: none; }
+  .home .hero-meta { display: none; }
+}
+
+/* ---- リデザイン層 v2: レイヤー順の強制と可読性 ---- */
+.home .hero { position: relative; }
+.home .hero-bg {
+  inset: 0; z-index: 0;
+  transform: none !important; /* パララックスJSより優先し、写真を固定 */
+}
+.home .hero::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg,
+    rgba(7,4,8,.80) 0%, rgba(7,4,8,.30) 36%,
+    rgba(7,4,8,.56) 60%, rgba(7,4,8,.95) 90%);
+}
+.home .hero-grain { z-index: 2; }
+.home .hero-stage { z-index: 5; }
+.home .hero-vertical-right { z-index: 4; }
+.home .scroll-indicator { z-index: 5; }
+
+/* モバイル: ボタンを2列グリッドで省スペースに */
+@media (max-width: 640px) {
+  .home .hero-tag { font-size: clamp(34px, 10vw, 60px); }
+  .home .hero-actions {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%;
+  }
+  .home .hero-actions .btn {
+    width: 100%; justify-content: center; padding: 13px 8px;
+    font-size: 12.5px; letter-spacing: .06em;
+  }
+  .home .hero-actions .btn-primary { grid-column: 1 / -1; padding: 15px 8px; font-size: 14px; }
+  .home .hero-jp { margin-bottom: 20px; }
+}
+
+/* ---- リデザイン層 v3: 仕上げ(改行制御・ボタン整列・軽量ヒーロー画像) ---- */
+.home .hero-bg {
+  background:
+    linear-gradient(180deg, rgba(7,4,8,.62) 0%, rgba(7,4,8,.28) 40%, rgba(7,4,8,.86) 88%),
+    url("images/store/interior-2-hero.jpg") center 36% / cover no-repeat;
+}
+.home .hero-tag { max-width: none; }
+.home .hero-title { margin-bottom: 26px; }
+.home .hero-title .line-1 { display: block; margin: 0 0 2px; }
+.home .hero-actions .btn { min-height: 52px; align-items: center; }
+@media (min-width: 641px) {
+  .home .hero-actions { max-width: 600px; }
+  .home .hero-actions .btn { font-size: 13.5px; padding: 13px 20px; }
+}
+
+/* ---- リデザイン層 v4: モバイルの引き算 ---- */
+@media (max-width: 640px) {
+  .home .hero-jp { display: none; }           /* 説明はスクロール先にある。表紙は一言で */
+  .home .hero-tag { font-size: clamp(38px, 11vw, 60px); margin-bottom: 2px; }
+  .home .spray-line { margin-bottom: 26px; }
+  .home .hero-actions .btn-tiktok { grid-column: 1 / -1; }
+  .home .hero-stage { bottom: 6svh; }
+  .home .hero::before {
+    background: linear-gradient(180deg,
+      rgba(7,4,8,.74) 0%, rgba(7,4,8,.22) 34%,
+      rgba(7,4,8,.46) 58%, rgba(7,4,8,.94) 88%);
+  }
+}
+
+/* ============================================================
+   2026-10 全面改装レイヤー v5（body.home）
+   リズム: 写真(暗) → 文字(暗) → 白壁(明) → 暗 … と緩急をつける
+   装飾言語: 店の壁の手描きグラフィティ(ストローク・マーカー)のみ
+   ============================================================ */
+
+/* ---- 全体リズム ---- */
+.home .section { padding: 96px 0; }
+@media (min-width: 900px) { .home .section { padding: 140px 0; } }
+.home .section-head { margin-bottom: 48px; }
+.home .section-title { font-size: clamp(30px, 5vw, 52px); line-height: 1.4; }
+
+/* ---- ABOUT: 誌面風の非対称2カラム ---- */
+@media (min-width: 900px) {
+  .home #about .about-grid {
+    display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start;
+  }
+}
+.home #about .about-quote { border: none; padding: 0; background: none; }
+.home #about .quote-mark { display: none; }
+.home #about .quote-text {
+  font-family: "Shippori Mincho", serif;
+  font-size: clamp(34px, 4.6vw, 58px); line-height: 1.6; color: #F6F2EA;
+}
+.home #about .quote-en { color: var(--gold, #C9A96A); font-size: 12px; letter-spacing: .3em; }
+.home #about .lead { font-size: clamp(15px, 1.7vw, 17px); line-height: 2.3; }
+.home #about p { line-height: 2.3; }
+
+/* ---- MANIFESTO ---- */
+.home .manifesto-section article,
+.home .manifesto-section .promise-card { background: none; border: none; box-shadow: none; }
+
+/* ---- POINT: カードをやめ、目次のような行組みに ---- */
+.home .point-section .point-card {
+  background: none; border: none; border-radius: 0; box-shadow: none;
+  border-top: 1px solid rgba(201,169,106,.35);
+  padding: 34px 4px;
+}
+.home .point-section .point-card:last-child { border-bottom: 1px solid rgba(201,169,106,.35); }
+@media (min-width: 900px) {
+  .home .point-section .point-card { display: grid; grid-template-columns: 5fr 7fr; gap: 40px; align-items: baseline; }
+}
+.home .point-section .point-card h3 { font-family: "Shippori Mincho", serif; font-size: clamp(22px, 2.6vw, 30px); }
+.home .point-section .point-card:hover { transform: none; }
+
+/* ---- CAST: グラビア風(1人目を大きく・写真を主役に) ---- */
+.home .cast-grid { gap: 14px; }
+@media (min-width: 640px) {
+  .home .cast-grid { grid-template-columns: repeat(4, 1fr); }
+  .home .cast-grid .cast-card:first-child { grid-column: span 2; grid-row: span 2; }
+}
+.home .cast-card {
+  background: none; border: none; border-radius: 0; box-shadow: none; padding: 0;
+}
+.home .cast-card .cast-photo { border-radius: 0; }
+.home .cast-card:first-child .cast-photo { min-height: 100%; }
+.home .cast-name-overlay {
+  font-family: Georgia, "Cormorant Garamond", serif;
+  font-size: clamp(22px, 2.6vw, 34px); letter-spacing: .14em;
+  text-shadow: 0 2px 14px rgba(0,0,0,.85);
+}
+.home .cast-card figcaption { padding: 12px 2px 4px; text-align: left; background: none; }
+.home .cast-card .cast-rank {
+  display: inline-block; background: var(--pink, #FF1F7A); color: #0a0608;
+  font-size: 10px; font-weight: 700; letter-spacing: .18em; padding: 3px 8px; border-radius: 2px;
+}
+.home .cast-card .cast-comment { font-size: 12.5px; color: rgba(255,255,255,.78); }
+
+/* ---- INTERIOR: 1枚主役+2枚脇のコラージュ ---- */
+@media (min-width: 760px) {
+  .home .interior-section .interior-grid,
+  .home .interior-section .interior-photos {
+    display: grid; grid-template-columns: 2fr 1fr; grid-auto-rows: 1fr; gap: 14px;
+  }
+  .home .interior-section .interior-grid > *:first-child,
+  .home .interior-section .interior-photos > *:first-child { grid-row: span 2; }
+}
+.home .interior-section figure, .home .interior-section img { border-radius: 0; }
+
+/* ---- SYSTEM: 白壁メニュー(店の白壁×手描きと同じ言語) ---- */
+.home .system-section {
+  background: #F2EDE6;
+  background-image: radial-gradient(rgba(23,16,13,.045) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: #17100D;
+}
+.home .system-section .section-title,
+.home .system-section .section-sub,
+.home .system-section h2, .home .system-section h3,
+.home .system-section p, .home .system-section li,
+.home .system-section dt, .home .system-section dd,
+.home .system-section span { color: inherit; }
+.home .system-section .section-head::before { background: linear-gradient(180deg, #FF1F7A, rgba(255,31,122,.25)); }
+.home .system-section .section-sub { color: #8a6a3c; }
+
+.home .system-section .price-card {
+  background: none; border: none; border-radius: 0; box-shadow: none;
+  border-top: 2px solid #17100D; padding: 26px 4px 30px;
+}
+.home .system-section .price-card-head { background: none; border: none; padding: 0 0 6px; }
+.home .system-section .price-card-tag {
+  background: #17100D; color: #F2EDE6; border-radius: 2px;
+  padding: 4px 12px; font-size: 12px; letter-spacing: .22em;
+}
+.home .system-section .price-card.lady .price-card-tag { background: #FF1F7A; color: #17100D; }
+.home .system-section .price-card-jp { color: #8a6a3c; }
+.home .system-section .price-amount {
+  font-family: Georgia, serif; font-size: clamp(72px, 11vw, 120px);
+  color: #17100D; letter-spacing: .02em; line-height: 1;
+}
+.home .system-section .price-currency { font-size: clamp(28px, 4vw, 44px); color: #17100D; }
+.home .system-section .price-unit { color: #6b5a50; }
+.home .system-section .price-tax-incl { color: #6b5a50; }
+.home .system-section .price-tax-incl strong { color: #17100D; }
+.home .system-section .price-card-incl { background: none; border: none; padding: 10px 0 0; }
+.home .system-section .price-incl-label {
+  background: none; color: #8a6a3c; padding: 0; letter-spacing: .2em; font-size: 11px;
+}
+.home .system-section .price-card-incl li { color: #3a2e28; border-color: rgba(23,16,13,.15); }
+
+.home .system-section .option-item {
+  background: none; border: none; border-bottom: 1px dashed rgba(23,16,13,.3);
+  border-radius: 0; box-shadow: none;
+}
+.home .system-section .option-name { color: #17100D; font-weight: 600; }
+.home .system-section .option-en { color: #8a6a3c; }
+.home .system-section .option-price { color: #D81B66; font-family: Georgia, serif; }
+
+.home .system-section .guide-link-card {
+  background: #fff; border: 1px solid rgba(23,16,13,.18); border-radius: 3px; box-shadow: none;
+}
+.home .system-section .guide-link-title { color: #17100D; }
+.home .system-section .guide-link-desc { color: #6b5a50; }
+.home .system-section .guide-link-kicker { color: #D81B66; }
+
+.home .system-section .cv-badge { background: #fff; border: 1px solid rgba(23,16,13,.2); color: #17100D; }
+.home .system-section .cv-badge span { color: #17100D; }
+.home .system-section .cv-note { color: #6b5a50; }
+.home .system-section .note-item { background: none; border: 1px solid rgba(23,16,13,.2); }
+
+.home .system-section .btn-outline {
+  border-color: #17100D; color: #17100D; background: none;
+}
+.home .system-section .btn-primary { background: #FF1F7A; border-color: #FF1F7A; color: #17100D; }
+
+/* 曜日イベント(白壁の中の枠書き) */
+.home .system-section article {
+  background: none; border: 1px solid rgba(23,16,13,.25); border-radius: 3px; box-shadow: none;
+}
+
+/* ---- NEWS: 細線のリスト ---- */
+.home .news-section .news-list li {
+  background: none; border: none; border-bottom: 1px solid rgba(201,169,106,.22);
+  border-radius: 0; backdrop-filter: none; margin-bottom: 0;
+}
+.home .news-section .news-list li.featured {
+  border-left: 3px solid var(--pink, #FF1F7A); padding-left: 20px;
+}
+
+/* ---- FAQ/GIFT ---- */
+.home .faq-item { background: none; border-bottom: 1px solid rgba(201,169,106,.22); border-radius: 0; }
+.home .remote-gift-section .gift-step { background: none; border: 1px solid rgba(201,169,106,.3); }
+
+@media (max-width: 639px) {
+  .home .cast-grid { grid-template-columns: repeat(2, 1fr); }
+  .home .cast-grid .cast-card:first-child { grid-column: 1 / -1; }
+}
+
+/* v5.1: 募集枠カードを「貼り紙」風に */
+.home .cast-card.placeholder .cast-photo {
+  border: 1.5px dashed rgba(201,169,106,.55);
+  background: rgba(201,169,106,.04);
+  display: flex; align-items: center; justify-content: center;
+  min-height: 220px;
+}
+.home .cast-card.placeholder .cast-name-overlay {
+  position: static; font-size: 15px; letter-spacing: .3em;
+  color: var(--gold, #C9A96A); text-shadow: none;
+}
+.home .cast-card.placeholder .cast-overlay { position: static; background: none; }
+
+/* v5.2: 低い画面でヒーロー文字が切れない保険 */
+@media (max-height: 720px) {
+  .home .hero { min-height: 0; }
+  .home .hero-stage {
+    position: relative; left: auto; right: auto; bottom: auto;
+    padding: 130px 6vw 70px; max-width: 860px;
+  }
+}
+
+/* ============================================================
+   v6: NEWSポスター表示 + 記事ページ(ガイド10本)のデザイン統一
+   トップと同じ視覚言語: 左揃え・ピンクの筆致・余白・直線的ボタン
+   ============================================================ */
+
+/* ---- NEWS内のイベントポスター ---- */
+.news-poster {
+  display: block; width: min(100%, 420px); height: auto;
+  margin: 18px 0 6px; border: 1px solid rgba(201,169,106,.35);
+}
+
+/* ---- 記事ページ共通(guide-article) ---- */
+.guide-article .guide-head {
+  text-align: left; position: relative; padding-left: 22px;
+  margin-bottom: 42px;
+}
+.guide-article .guide-head::before {
+  content: ""; position: absolute; left: 0; top: .4em; bottom: .5em;
+  width: 6px; border-radius: 3px;
+  background: linear-gradient(180deg, #FF1F7A, rgba(255,31,122,.15));
+}
+.guide-article .guide-head .kicker {
+  display: inline-block; color: #C9A96A; letter-spacing: .22em; font-size: 12px;
+  background: none; border: none; padding: 0; margin-bottom: 10px;
+}
+.guide-article .guide-title {
+  font-family: "Shippori Mincho", serif;
+  font-size: clamp(27px, 4.6vw, 44px); line-height: 1.55; letter-spacing: .02em;
+}
+.guide-article .guide-title small { color: rgba(255,255,255,.75); }
+.guide-article .guide-meta { color: rgba(201,169,106,.9); }
+
+.guide-article .guide-section { margin-bottom: 64px; }
+.guide-article .guide-section h2 {
+  font-family: "Shippori Mincho", serif;
+  font-size: clamp(21px, 3vw, 28px); line-height: 1.6;
+  border-left: 5px solid #FF1F7A; padding-left: 16px;
+  background: none; border-bottom: none;
+  margin-bottom: 26px;
+}
+.guide-article .guide-section h3 {
+  color: #C9A96A; font-size: clamp(17px, 2.2vw, 20px); margin: 30px 0 12px;
+}
+.guide-article .guide-section p, .guide-article .guide-section li { line-height: 2.15; }
+
+.guide-article .trip-cta {
+  background: none; border: 1px solid rgba(201,169,106,.4); border-radius: 4px;
+  box-shadow: none;
+}
+.guide-article .btn {
+  border-radius: 3px; background-image: none; box-shadow: none; letter-spacing: .1em;
+}
+.guide-article .btn-primary { background: #FF1F7A; border: 1px solid #FF1F7A; color: #0a0608; font-weight: 700; }
+.guide-article .btn-primary:hover { background: #ff4890; transform: none; }
+.guide-article .btn-outline { background: none; border: 1px solid rgba(255,255,255,.55); color: #fff; }
+
+.guide-article .breadcrumb { color: rgba(255,255,255,.55); }
+.guide-article table { border-color: rgba(201,169,106,.3); }

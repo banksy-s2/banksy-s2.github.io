@@ -81,7 +81,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Shrikhand&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260920fix" />
+  <link rel="preload" as="image" href="images/store/interior-2-hero.jpg" />
+  <link rel="stylesheet" href="styles.css?v=20261009m" />
 
   <!-- ===== JSON-LD: NightClub / LocalBusiness ===== -->
   <script type="application/ld+json">
@@ -329,6 +330,33 @@
   }
   </script>
 
+  <!-- ===== JSON-LD: Event（ハロウィン2026）===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "BANKSY ハロウィンイベント 2026",
+    "description": "2026年10月30日（金）・31日（土）の2日間、YANAGAWA BANKSY のキャスト全員がコスプレでお出迎え。ご来店の方にはクジ付きのお菓子をプレゼント。",
+    "startDate": "2026-10-30",
+    "endDate": "2026-10-31",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "YANAGAWA BANKSY",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "三橋町下百町24-3 1階",
+        "addressLocality": "柳川市",
+        "addressRegion": "福岡県",
+        "postalCode": "832-0814",
+        "addressCountry": "JP"
+      }
+    },
+    "organizer": { "@id": "https://yanagawabanksy.web.app/#business" },
+    "image": "https://yanagawabanksy.web.app/images/event/halloween-2026.jpg"
+  }
+  </script>
   <!-- ===== JSON-LD: FAQPage (AI検索引用ターゲット) ===== -->
   <script type="application/ld+json">
   {
@@ -515,7 +543,7 @@
   }
   </script>
 </head>
-<body>
+<body class="home">
 
   <!-- OPENING LOADER -->
   <div class="loader" id="loader" aria-hidden="true">
@@ -666,7 +694,11 @@
         </span>
         <span class="hero-line line-2 split-text">BANKSY</span>
       </h1>
-      <p class="hero-tag">柳川の夜を、もっと熱く。</p>
+      <p class="hero-tag">柳川の夜を、<br />もっと熱く。</p>
+      <svg class="spray-line" viewBox="0 0 300 26" aria-hidden="true" focusable="false">
+        <path pathLength="1" d="M5 15 C 60 6, 160 21, 295 9" fill="none" stroke="#FF1F7A" stroke-width="7" stroke-linecap="round" opacity="0.92"/>
+        <path pathLength="1" d="M10 20 C 85 13, 185 24, 278 15" fill="none" stroke="#FF1F7A" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+      </svg>
       <p class="hero-jp">可愛い女の子と、飲み放題で気軽に楽しめる<br />柳川最新の新感覚 <strong>MIX BAR</strong>。</p>
       <div class="hero-actions">
         <a class="btn btn-primary magnetic" href="#system" data-cursor="lg">
@@ -1239,6 +1271,12 @@
         <p class="section-sub">お知らせ</p>
       </div>
       <ul class="news-list">
+        <li class="featured news-with-poster">
+          <time datetime="2026-10-30">2026.10.30 − 10.31</time>
+          <span class="news-tag anniv">HALLOWEEN</span>
+          <p><strong>BANKSY ハロウィンイベント開催！</strong>10月30日（金）・31日（土）の2日間、キャスト全員<strong>コスプレ</strong>でお待ちしています。ご来店の方には<strong>クジ付きのお菓子</strong>をプレゼント🎃<br />
+          <img src="images/event/halloween-2026.jpg" alt="BANKSYハロウィンイベント 10月30日・31日 コスプレして待ってます クジ付きお菓子プレゼント" loading="lazy" width="900" height="1350" class="news-poster" /></p>
+        </li>
         <li>
           <time datetime="2026-09-19">2026.09.19</time>
           <span class="news-tag">CAST</span>
@@ -1708,8 +1746,8 @@
           </p>
 
           <div class="recruit-video">
-            <video
-              autoplay muted loop playsinline preload="metadata"
+            <video id="recruitVideo"
+              muted loop playsinline preload="none"
               poster="images/cast/yutsuki.jpg?v=20260920p"
               controls>
               <source src="images/video/recruit.mp4?v=20260920p" type="video/mp4" />
@@ -1890,6 +1928,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20261001r"></script>
+  <script src="script.js?v=20261009i"></script>
 </body>
 </html>
