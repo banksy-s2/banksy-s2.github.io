@@ -505,3 +505,59 @@ if (location.hostname === "banksy-s2.github.io") {
       .catch(() => { clearTimeout(timer); showUnavailable(); });
     })();
 })();
+
+// ===== 2026-10-12 スクロール演出 v7 =====
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // 08 料金カウントアップ: ¥2,900 / ¥2,000 が画面に入った瞬間に回って止まる
+  if (!reduce && "IntersectionObserver" in window) {
+    var amounts = document.querySelectorAll(".price-amount");
+    if (amounts.length) {
+      var amtIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          amtIo.unobserve(entry.target);
+          var el = entry.target;
+          var finalText = el.textContent;
+          var target = parseInt(finalText.replace(/[^0-9]/g, ""), 10);
+          if (isNaN(target) || target <= 0) return;
+          var dur = 1100;
+          var start = performance.now();
+          function step(now) {
+            var p = Math.min((now - start) / dur, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.floor(target * eased).toLocaleString("ja-JP");
+            if (p < 1) requestAnimationFrame(step);
+            else el.textContent = finalText; // 必ず元の正しい表記で終わる
+          }
+          requestAnimationFrame(step);
+        });
+      }, { threshold: 0.6 });
+      amounts.forEach(function (el) { amtIo.observe(el); });
+    }
+  }
+
+  // 23 隠れるヘッダー: 下スクロール中は隠れて画面を広く、上に戻るとすぐ出る
+  var header = document.querySelector(".site-header");
+  if (header && !reduce) {
+    var lastY = 0;
+    var ticking = false;
+    function getY() {
+      return (document.scrollingElement || document.documentElement).scrollTop || window.pageYOffset || 0;
+    }
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var y = getY();
+        if (y > lastY + 6 && y > 160) header.classList.add("header-hidden");
+        else if (y < lastY - 6 || y <= 160) header.classList.remove("header-hidden");
+        lastY = y;
+        ticking = false;
+      });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("scroll", onScroll, true);
+  }
+})();
