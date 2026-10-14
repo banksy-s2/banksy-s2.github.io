@@ -142,7 +142,7 @@ C:\Users\User\Desktop\
 | 定休日 | **なし（年中無休）**（2026-10-14変更。旧:水曜定休） |
 | 住所 | 福岡県柳川市三橋町下百町24-3 1階 |
 | 立地 | **柳川駅 徒歩20秒** |
-| 電話 | 近日公開予定（未提供）|
+| 電話 | 080-9102-9190（2026-10-14 掲載。GBPと同一番号） |
 | 予約 | Instagram DM (@banksy.s2) |
 
 ### 料金体系
@@ -321,7 +321,7 @@ C:\Users\User\Desktop\
 
 | 優先度 | タスク |
 |---|---|
-| 🔴 | 電話番号未提供（用意できたら `index.html` の `"telephone"` JSON-LD と INFOセクションに反映）|
+| ✅ | ~~電話番号未提供~~ 掲載完了（10-14・JSON-LD telephone + INFO + llms.txt + pricing.md、cv計測 tel_info）|
 | 🔴 | X（旧 Twitter） / LINE URL 未提供 |
 | 🟡 | ももこ・りんか・NANA・AROMA の**本人コメント差し替え**（現状は仮）|
 | 🟡 | しおん の追加写真 |
