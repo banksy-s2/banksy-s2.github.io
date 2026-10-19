@@ -6806,3 +6806,55 @@ body {
   .site-header { transition: none; }
   .site-header.header-hidden { transform: none; }
 }
+
+/* ============================================================
+   2026-10-19 スクロール演出 v8（参考動画より追加2種）
+   16 マーキー(流れるブランド帯) / 20 カードスタック(曜日イベント・モバイル)
+   ============================================================ */
+/* 16 マーキー: セクション境目を流れる縁取り文字の帯 */
+.home .brand-marquee {
+  overflow: hidden;
+  background: #050505;
+  padding: 30px 0 26px;
+  border-top: 1px solid rgba(201, 169, 106, .18);
+}
+.home .brand-marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: brandMarquee 32s linear infinite;
+  will-change: transform;
+}
+.home .brand-marquee-seg {
+  font-family: "Cormorant Garamond", "Shippori Mincho", serif;
+  font-style: italic;
+  font-size: clamp(30px, 6vw, 58px);
+  line-height: 1.1;
+  letter-spacing: .06em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201, 169, 106, .8);
+  flex: none;
+}
+@keyframes brandMarquee {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home .brand-marquee-track { animation: none; }
+}
+
+/* 20 カードスタック: モバイルで曜日カードが重なりながら積み上がる */
+@media (max-width: 720px) {
+  .home .weekly-grid { display: block; }
+  .home .weekly-grid .weekly-card {
+    position: sticky;
+    margin-bottom: 14px;
+    box-shadow: 0 -10px 30px rgba(23, 16, 13, .14);
+  }
+  .home .weekly-grid .weekly-card:not(.featured) {
+    background: #F6F1E9;
+    border: 1px solid rgba(23, 16, 13, .22);
+  }
+  .home .weekly-grid .weekly-card.mon { top: 84px; z-index: 1; }
+  .home .weekly-grid .weekly-card.tue { top: 97px; z-index: 2; }
+  .home .weekly-grid .weekly-card.thu { top: 110px; z-index: 3; }
+  .home .weekly-grid .weekly-card.sun { top: 123px; z-index: 4; }
+}
