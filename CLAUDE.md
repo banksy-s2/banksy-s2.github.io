@@ -49,6 +49,7 @@ C:\Users\User\Desktop\
 
 - **素のHTML/CSS/JavaScript**（フレームワーク無し）
 - **Firebase Hosting** で配信（2026-08-25〜）: project `yanagawabanksy` / site `yanagawabanksy` → https://yanagawabanksy.web.app/
+- **デプロイ時は CLAUDE.md / README.md をステージから必ず除外**（内部メモが https://~/CLAUDE.md で公開されていた事故を2026-10-19に修正。firebase.json の ignore にも記載）
 - デプロイ方法: scratchpad に site/ を作って firebase.json（public: "site"）と共に
   `firebase deploy --only hosting --project yanagawabanksy`。**publish フォルダに firebase.json は置かない**
 - ⚠️ **デプロイ時の鉄則（2026-09-20の事故から）**:
