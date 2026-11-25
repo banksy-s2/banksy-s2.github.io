@@ -9,7 +9,7 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yanagawabanksy.web.app/index-zh.html"/>
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://yanagawabanksy.web.app/index-tw.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://yanagawabanksy.web.app/index-ko.html"/>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -21,19 +21,20 @@
   <url><loc>https://yanagawabanksy.web.app/index-zh.html</loc><lastmod>2026-07-24</lastmod><priority>0.9</priority></url>
   <url><loc>https://yanagawabanksy.web.app/index-tw.html</loc><lastmod>2026-06-05</lastmod><priority>0.9</priority></url>
   <url><loc>https://yanagawabanksy.web.app/index-ko.html</loc><lastmod>2026-07-24</lastmod><priority>0.9</priority></url>
-  <url><loc>https://yanagawabanksy.web.app/guide.html</loc><lastmod>2026-07-24</lastmod><priority>0.8</priority></url>
+  <url><loc>https://yanagawabanksy.web.app/guide.html</loc><lastmod>2026-11-25</lastmod><priority>0.8</priority></url>
   <url><loc>https://yanagawabanksy.web.app/champagne.html</loc><lastmod>2026-06-05</lastmod><priority>0.7</priority></url>
   <url><loc>https://yanagawabanksy.web.app/ladies.html</loc><lastmod>2026-06-05</lastmod><priority>0.8</priority></url>
   <url><loc>https://yanagawabanksy.web.app/yufuin.html</loc><lastmod>2026-06-08</lastmod><priority>0.7</priority></url>
-  <url><loc>https://yanagawabanksy.web.app/onigie.html</loc><lastmod>2026-10-29</lastmod><priority>0.8</priority></url>
-  <url><loc>https://yanagawabanksy.web.app/kurume.html</loc><lastmod>2026-07-24</lastmod><priority>0.8</priority></url>
-  <url><loc>https://yanagawabanksy.web.app/omuta.html</loc><lastmod>2026-07-24</lastmod><priority>0.8</priority></url>
-  <url><loc>https://yanagawabanksy.web.app/saga.html</loc><lastmod>2026-07-24</lastmod><priority>0.8</priority></url>
-  <url><loc>https://yanagawabanksy.web.app/chikugo.html</loc><lastmod>2026-07-24</lastmod><priority>0.8</priority></url>
-  <url><loc>https://yanagawabanksy.web.app/kawakudari.html</loc><lastmod>2026-07-24</lastmod><priority>0.8</priority></url>
+  <url><loc>https://yanagawabanksy.web.app/onigie.html</loc><lastmod>2026-11-25</lastmod><priority>0.8</priority></url>
+  <url><loc>https://yanagawabanksy.web.app/kurume.html</loc><lastmod>2026-11-25</lastmod><priority>0.8</priority></url>
+  <url><loc>https://yanagawabanksy.web.app/omuta.html</loc><lastmod>2026-11-25</lastmod><priority>0.8</priority></url>
+  <url><loc>https://yanagawabanksy.web.app/saga.html</loc><lastmod>2026-11-25</lastmod><priority>0.8</priority></url>
+  <url><loc>https://yanagawabanksy.web.app/chikugo.html</loc><lastmod>2026-11-25</lastmod><priority>0.8</priority></url>
+  <url><loc>https://yanagawabanksy.web.app/kawakudari.html</loc><lastmod>2026-11-25</lastmod><priority>0.8</priority></url>
+  <url><loc>https://yanagawabanksy.web.app/karaoke.html</loc><lastmod>2026-11-25</lastmod><priority>0.8</priority></url>
   <url>
     <loc>https://yanagawabanksy.web.app/kanko.html</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
